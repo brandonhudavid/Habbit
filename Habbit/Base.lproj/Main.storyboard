@@ -29,7 +29,7 @@
         <!--Item 1-->
         <scene sceneID="u9B-II-UlX">
             <objects>
-                <viewController id="f66-Zt-mS6" sceneMemberID="viewController">
+                <viewController id="f66-Zt-mS6" customClass="HabitViewController" customModule="Habbit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aPz-Y7-zC5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
