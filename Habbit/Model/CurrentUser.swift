@@ -30,8 +30,6 @@ class CurrentUser {
         id = currentUser?.uid
     }
     
-    
-    
     /*
      TODO:
      

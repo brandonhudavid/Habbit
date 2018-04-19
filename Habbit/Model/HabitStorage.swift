@@ -37,10 +37,10 @@ func store(data: Data?, toPath path: String) {
     }
 }
 
-func getHabits(user: CurrentUser, completion: @escaping ([Post]?) -> Void) {
+func getHabits(user: CurrentUser, completion: @escaping ([Habit]?) -> Void) {
     let dbRef = Database.database().reference()
-    var postArray: [Post] = []
-    dbRef.child(firPostsNode).observeSingleEvent(of: .value, with: { snapshot -> Void in
+    var habitArray: [Habit] = []
+    dbRef.child("Habits").observeSingleEvent(of: .value, with: { snapshot -> Void in
         if snapshot.exists() {
             if let posts = snapshot.value as? [String:AnyObject] {
                 user.getReadPostIDs(completion: { (ids) in
