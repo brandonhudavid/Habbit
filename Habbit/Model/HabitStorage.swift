@@ -11,20 +11,20 @@ import UIKit
 import FirebaseDatabase
 import FirebaseStorage
 
-func addHabit(habitName: String, habitIcon: UIImage, color: String) {
+func addHabit(habitName: String, habitIcon: UIImage, habitColor: String) {
     let dbRef = Database.database().reference()
-    let data = UIImageJPEGRepresentation(habitIcon, 1.0)
-    let path = "HabitIcons/\(UUID().uuidString)"
+    let habitIconData = UIImageJPEGRepresentation(habitIcon, 1.0)
+    let habitIconPath = "HabitIcons/\(UUID().uuidString)"
     
 //    let dateFormatter = DateFormatter()
 //    dateFormatter.dateFormat = "MM-dd-yyyy"
 //    let dateString = dateFormatter.string(from: Date())
-    var daysPerformed: [String] = []
-    let habitDict: [String:AnyObject] = ["habitIcon": habitIcon as UIImage,
-                                         "daysPerformed": daysPerformed as [String] as AnyObject,
-                                         "color": color as String as AnyObject]
-    dbRef.child("Habits").child(habitName).setValue(habitDict)
-    store(data: data, toPath: path)
+    var habitDays: [String] = []
+    let habitDict: [String:AnyObject] = ["habitIconPath": habitIconPath as String as AnyObject,
+                                         "habitDays": habitDays as [String] as AnyObject,
+                                         "habitColor": habitColor as String as AnyObject]
+    dbRef.child(CurrentUser().id).child(habitName).setValue(habitDict)
+    store(data: habitIconData, toPath: habitIconPath)
     
 }
 
@@ -40,16 +40,24 @@ func store(data: Data?, toPath path: String) {
 func getHabits(user: CurrentUser, completion: @escaping ([Habit]?) -> Void) {
     let dbRef = Database.database().reference()
     var habitArray: [Habit] = []
-    dbRef.child("Habits").observeSingleEvent(of: .value, with: { snapshot -> Void in
+    dbRef.child(CurrentUser().id).observeSingleEvent(of: .value, with: { snapshot -> Void in
         if snapshot.exists() {
-            if let posts = snapshot.value as? [String:AnyObject] {
-                user.getReadPostIDs(completion: { (ids) in
-                    for postKey in posts.keys {
-                        var newPost = Post(id: postKey, username: posts[postKey]![firUsernameNode] as! String, postImagePath: posts[postKey]![firImagePathNode] as! String, thread: posts[postKey]![firThreadNode] as! String, dateString: posts[postKey]![firDateNode] as! String, read: ids.contains(postKey))
-                        postArray.append(newPost)
+            // Each user's node maps habitName strings to another map that maps attribute names to their respective objects
+            if let habits = snapshot.value as? [String : [String : Any]] {
+                for (key, value) in habits {
+                    let habitName: String = key
+                    if let iconPath = value["habitIconPath"] as? String, let days = value["habitDays"] as? [String],
+                    let color = value["habitColor"] as? String {
+                        let habitIconPath = iconPath
+                        let habitDays = days
+                        let habitColor = color
+                        let newHabit = Habit(habitName: habitName, habitIconPath: habitIconPath, habitDays: habitDays, habitColor: habitColor)
+                        habitArray.append(newHabit)
+                    } else {
+                    completion(nil)
                     }
-                    completion(postArray)
-                })
+                }
+                completion(habitArray)
             } else {
                 completion(nil)
             }
@@ -57,5 +65,4 @@ func getHabits(user: CurrentUser, completion: @escaping ([Habit]?) -> Void) {
             completion(nil)
         }
     })
-
 }
