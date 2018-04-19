@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3373E1703F59A5A0CD9DF315 /* Pods_HabbitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F73B4609312EE7FA93D3708F /* Pods_HabbitUITests.framework */; };
 		8A0CFE6A208837E400C4310C /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0CFE69208837E400C4310C /* Habit.swift */; };
+		8A0CFE6C208862A500C4310C /* HabitAdderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0CFE6B208862A500C4310C /* HabitAdderController.swift */; };
 		8A3DEC462083EC4A002DE4AD /* HabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3DEC452083EC49002DE4AD /* HabitViewController.swift */; };
 		8A3DEC482083FB8A002DE4AD /* HabitStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3DEC472083FB8A002DE4AD /* HabitStorage.swift */; };
 		8A3DEC4A208403F8002DE4AD /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3DEC49208403F8002DE4AD /* CurrentUser.swift */; };
@@ -49,6 +50,7 @@
 		6C137A26F6AF1EAD6ECD3EC6 /* Pods-HabbitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabbitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HabbitTests/Pods-HabbitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6D547EE786BF6D5DD93FE27B /* Pods_Habbit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Habbit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0CFE69208837E400C4310C /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Habit.swift; path = Model/Habit.swift; sourceTree = "<group>"; };
+		8A0CFE6B208862A500C4310C /* HabitAdderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitAdderController.swift; sourceTree = "<group>"; };
 		8A3DEC452083EC49002DE4AD /* HabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewController.swift; sourceTree = "<group>"; };
 		8A3DEC472083FB8A002DE4AD /* HabitStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStorage.swift; sourceTree = "<group>"; };
 		8A3DEC49208403F8002DE4AD /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				8A3DEC452083EC49002DE4AD /* HabitViewController.swift */,
 				8A3DEC472083FB8A002DE4AD /* HabitStorage.swift */,
 				8A3DEC49208403F8002DE4AD /* CurrentUser.swift */,
+				8A0CFE6B208862A500C4310C /* HabitAdderController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA1206AE2083CAD3002C5706 /* SignUpViewController.swift in Sources */,
+				8A0CFE6C208862A500C4310C /* HabitAdderController.swift in Sources */,
 				CAA8E4DA2083C7A60004A93A /* AppDelegate.swift in Sources */,
 				CA1206AB2083CA56002C5706 /* LogInViewController.swift in Sources */,
 				8A0CFE6A208837E400C4310C /* Habit.swift in Sources */,
