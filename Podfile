@@ -13,6 +13,7 @@ target 'Habbit' do
   pod 'MBProgressHUD'
   pod 'SDWebImage'
   pod 'FirebaseDatabase'
+  pod 'G3GridView'
 
   target 'HabbitTests' do
     inherit! :search_paths
