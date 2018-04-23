@@ -241,7 +241,7 @@ open class GridView: UIScrollView {
     }
     
     // MARK: Actions
-    dynamic private func handlePinch(gesture: UIPinchGestureRecognizer) {
+    @objc dynamic private func handlePinch(gesture: UIPinchGestureRecognizer) {
         switch gesture.state {
         case .began:
             beginningPinchScale = currentPinchScale

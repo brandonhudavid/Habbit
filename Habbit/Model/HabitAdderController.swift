@@ -16,7 +16,7 @@ class HabitAdderController: UIViewController {
     @IBOutlet weak var habitColor: UITextField!
     
     @IBAction func adderButton(_ sender: Any) {
-        addHabit(habitName: habitName.text!, habitIcon: #imageLiteral(resourceName: "eecs_rsf"), habitColor: habitColor.text!)
+        addHabit(habitName: habitName.text!, habitIcon: #imageLiteral(resourceName: "small-image-test"), habitColor: habitColor.text!)
         performSegue(withIdentifier: "unwindSegueToHabitVC", sender: self)
     }
     

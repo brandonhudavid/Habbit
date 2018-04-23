@@ -13,6 +13,7 @@
 		8A3DEC462083EC4A002DE4AD /* HabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3DEC452083EC49002DE4AD /* HabitViewController.swift */; };
 		8A3DEC482083FB8A002DE4AD /* HabitStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3DEC472083FB8A002DE4AD /* HabitStorage.swift */; };
 		8A3DEC4A208403F8002DE4AD /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3DEC49208403F8002DE4AD /* CurrentUser.swift */; };
+		8AB45093208D6A0E009AF510 /* HabitViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB45092208D6A0E009AF510 /* HabitViewCell.swift */; };
 		A75CE518F7B781EA9024AAA6 /* Pods_HabbitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A987EC57C86D62E1A4CDAFC8 /* Pods_HabbitTests.framework */; };
 		B774067D4A3AC96550A4FE4C /* Pods_Habbit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D547EE786BF6D5DD93FE27B /* Pods_Habbit.framework */; };
 		CA1206AB2083CA56002C5706 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1206AA2083CA56002C5706 /* LogInViewController.swift */; };
@@ -54,6 +55,7 @@
 		8A3DEC452083EC49002DE4AD /* HabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewController.swift; sourceTree = "<group>"; };
 		8A3DEC472083FB8A002DE4AD /* HabitStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStorage.swift; sourceTree = "<group>"; };
 		8A3DEC49208403F8002DE4AD /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		8AB45092208D6A0E009AF510 /* HabitViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewCell.swift; sourceTree = "<group>"; };
 		8B0D034D32779CADE02F7EA1 /* Pods-HabbitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabbitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HabbitTests/Pods-HabbitTests.release.xcconfig"; sourceTree = "<group>"; };
 		90E3D89947D2E8FAA39272C4 /* Pods-Habbit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Habbit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Habbit/Pods-Habbit.debug.xcconfig"; sourceTree = "<group>"; };
 		A987EC57C86D62E1A4CDAFC8 /* Pods_HabbitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HabbitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +143,7 @@
 				8A3DEC472083FB8A002DE4AD /* HabitStorage.swift */,
 				8A3DEC49208403F8002DE4AD /* CurrentUser.swift */,
 				8A0CFE6B208862A500C4310C /* HabitAdderController.swift */,
+				8AB45092208D6A0E009AF510 /* HabitViewCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AB45093208D6A0E009AF510 /* HabitViewCell.swift in Sources */,
 				CA1206AE2083CAD3002C5706 /* SignUpViewController.swift in Sources */,
 				8A0CFE6C208862A500C4310C /* HabitAdderController.swift in Sources */,
 				CAA8E4DA2083C7A60004A93A /* AppDelegate.swift in Sources */,
@@ -603,6 +607,30 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/G3GridView\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GTMSessionFetcher\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleToolboxForMac\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MBProgressHUD\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/leveldb-library\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb\"",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseAuth/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseCore/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseDatabase/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseStorage/Frameworks\"",
+					"$(SRCROOT)/**",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/Core/Sources",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"$(SRCROOT)/Pods/**",
+				);
 				INFOPLIST_FILE = Habbit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.IrisBrandon.Habbit;
@@ -618,6 +646,30 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/G3GridView\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GTMSessionFetcher\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleToolboxForMac\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MBProgressHUD\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/leveldb-library\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb\"",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseAuth/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseCore/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseDatabase/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseStorage/Frameworks\"",
+					"$(SRCROOT)/**",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/Core/Sources",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"$(SRCROOT)/Pods/**",
+				);
 				INFOPLIST_FILE = Habbit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.IrisBrandon.Habbit;
