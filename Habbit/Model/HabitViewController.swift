@@ -11,12 +11,12 @@ import UIKit
 import FirebaseDatabase
 import FirebaseStorage
 import MBProgressHUD
+import G3GridView
 
 class HabitViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var habitNames: [String] = ["one", "two", "three", "four"]
+    var habitNames: [String] = []
     var habitIcons: [UIImage] = []
-    var habitMap: [String: UIImage] = [:]
     
     
     @IBOutlet weak var habitCollectionView: UICollectionView!
@@ -37,33 +37,27 @@ class HabitViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("numberOfItemsInSection: ")
-        print(habitNames.count)
-        return habitNames.count
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("cellForItemAt")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "habitCell", for: indexPath) as! HabitViewCell
         cell.habitImageView.image = #imageLiteral(resourceName: "small-image-test")
         cell.habitLabel.text = "hello world"
-        print(habitIcons[indexPath.item])
         return cell
     }
     
     
     func updateHabits() {
-//        self.habitNames = []
-//        self.habitIcons = []
+        self.habitNames = []
+        self.habitIcons = []
         getHabits() { (habits) in
             if let habits = habits {
                 for habit in habits {
                     getDataFromPath(path: habit.habitIconPath, completion: { (data) in
                         if let data = data {
                             if let image = UIImage(data: data) {
-                                print("adding to habitNames: " + habit.habitName)
                                 self.habitMap[habit.habitName] = image
-                                print("habitNames array after appending:")
                                 print(self.habitMap.keys)
                                 self.habitIcons.append(image)
                                 self.habitCollectionView.reloadData()
