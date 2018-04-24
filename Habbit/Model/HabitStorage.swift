@@ -11,6 +11,8 @@ import UIKit
 import FirebaseDatabase
 import FirebaseStorage
 
+let currentUser = CurrentUser()
+
 func addHabit(habitName: String, habitIcon: UIImage, habitColor: String) {
     let dbRef = Database.database().reference()
     let habitIconData = UIImageJPEGRepresentation(habitIcon, 1.0)
@@ -19,11 +21,11 @@ func addHabit(habitName: String, habitIcon: UIImage, habitColor: String) {
 //    let dateFormatter = DateFormatter()
 //    dateFormatter.dateFormat = "MM-dd-yyyy"
 //    let dateString = dateFormatter.string(from: Date())
-    var habitDays: [String] = []
+    var habitDays: [String] = ["sentinel"]
     let habitDict: [String:AnyObject] = ["habitIconPath": habitIconPath as String as AnyObject,
                                          "habitDays": habitDays as [String] as AnyObject,
                                          "habitColor": habitColor as String as AnyObject]
-    dbRef.child(CurrentUser().id).child(habitName).setValue(habitDict)
+    dbRef.child(currentUser.id).child(habitName).setValue(habitDict)
     store(data: habitIconData, toPath: habitIconPath)
     
 }
@@ -37,14 +39,15 @@ func store(data: Data?, toPath path: String) {
     }
 }
 
-func getHabits(user: CurrentUser, completion: @escaping ([Habit]?) -> Void) {
+func getHabits(completion: @escaping ([Habit]?) -> Void) {
     let dbRef = Database.database().reference()
     var habitArray: [Habit] = []
-    dbRef.child(CurrentUser().id).observeSingleEvent(of: .value, with: { snapshot -> Void in
+    dbRef.child(currentUser.id).observeSingleEvent(of: .value, with: { snapshot -> Void in
         if snapshot.exists() {
             // Each user's node maps habitName strings to another map that maps attribute names to their respective objects
             if let habits = snapshot.value as? [String : [String : Any]] {
                 for (key, value) in habits {
+                    print("key: " + key)
                     let habitName: String = key
                     if let iconPath = value["habitIconPath"] as? String, let days = value["habitDays"] as? [String],
                     let color = value["habitColor"] as? String {
@@ -65,4 +68,19 @@ func getHabits(user: CurrentUser, completion: @escaping ([Habit]?) -> Void) {
             completion(nil)
         }
     })
+}
+
+func getDataFromPath(path: String, completion: @escaping (Data?) -> Void) {
+    let storageRef = Storage.storage().reference()
+    storageRef.child(path).getData(maxSize: 5 * 1024 * 1024) { (data, error) in
+        if let error = error {
+            print("there was an error :(")
+        }
+        if let data = data {
+            completion(data)
+            print("getDataFromPath successful")
+        } else {
+            completion(nil)
+        }
+    }
 }
