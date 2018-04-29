@@ -14,9 +14,10 @@ var updateGrid: Bool = false
 
 class TrackerViewController: UIViewController {
     
-    var habitNames: [String] = [""]
-    let backColor: UIColor = UIColor.init(red: 255/255, green: 240/255, blue: 229/255, alpha: 1)
-
+    var habitNames: [String] = []
+    let lightOrange = UIColor.init(red: 255/255, green: 240/255, blue: 229/255, alpha: 1)
+    let darkOrange = UIColor.init(red: 249/255, green: 169/255, blue: 75/255, alpha: 1)
+    
     @IBOutlet weak var trackerGridView: GridView!
     
     override func viewDidLoad() {
@@ -57,11 +58,8 @@ extension TrackerViewController: GridViewDataSource, GridViewDelegate {
 
     func gridView(_ gridView: GridView, numberOfRowsInColumn column: Int) -> Int {
         habitNames = habitNames.sorted { $0.lowercased() < $1.lowercased() }
-        print(self.habitNames)
-        if (self.habitNames.count > 0) {
-            print(self.habitNames[0])
-        }
-        return habitNames.count
+        // compensate for bottom 2 rows getting cut off
+        return habitNames.count + 2
     }
 
     func numberOfColumns(in gridView: GridView) -> Int {
@@ -83,6 +81,9 @@ extension TrackerViewController: GridViewDataSource, GridViewDelegate {
 
     func gridView(_ gridView: GridView, cellForRowAt indexPath: IndexPath) -> GridViewCell {
         if let cell = gridView.dequeueReusableCell(withReuseIdentifier: "TrackerViewCell", for: indexPath) as? TrackerViewCell {
+            cell.layer.borderWidth = 2.0
+            cell.layer.borderColor = UIColor.white.cgColor
+            cell.backgroundColor = lightOrange
             switch indexPath.row {
             case 0:
                 switch indexPath.column {
@@ -103,15 +104,14 @@ extension TrackerViewController: GridViewDataSource, GridViewDelegate {
                 default:
                     cell.dayLabel.text = ""
                 }
+            case habitNames.count + 1:
+                cell.backgroundColor = UIColor.white
+                cell.dayLabel.text = ""
             default:
                 if indexPath.column == 0 {
                     cell.dayLabel.text = habitNames[indexPath.row - 1]
                 }
             }
-            
-            cell.layer.borderWidth = 2.0
-            cell.layer.borderColor = UIColor.white.cgColor
-            cell.backgroundColor = backColor
             return cell
         } else {
             return GridViewCell()
