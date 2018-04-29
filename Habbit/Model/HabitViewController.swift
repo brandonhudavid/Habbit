@@ -50,7 +50,7 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     override func viewDidLoad() {
         updateHabits()
-        welcomeText.addCharacterSpacing()
+//        welcomeText.addCharacterSpacing()
         super.viewDidLoad()
         habitCollectionView.delegate = self
         habitCollectionView.dataSource = self
@@ -81,7 +81,7 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
             
             cell.habitImageView.image = habitIcons[habitNames[indexPath.item]]
             cell.habitLabel.text = habitNames[indexPath.item]
-            cell.habitLabel.addCharacterSpacing()
+//            cell.habitLabel.addCharacterSpacing()
             if (habitsPerformed[habitNames[indexPath.item]])! {
                 cell.habitCheck.image = #imageLiteral(resourceName: "checkmark")
             } else {

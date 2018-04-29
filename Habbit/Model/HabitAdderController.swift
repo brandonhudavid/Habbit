@@ -17,7 +17,7 @@ class HabitAdderController: UIViewController, UICollectionViewDataSource, UIColl
     
     @IBOutlet weak var habitName: UITextField!
     
-    var iconsArray: [UIImage] = [#imageLiteral(resourceName: "icon-dog"), #imageLiteral(resourceName: "icon-eat"), #imageLiteral(resourceName: "icon-hydrate"), #imageLiteral(resourceName: "icon-shop"), #imageLiteral(resourceName: "icon-run"), #imageLiteral(resourceName: "small-image-test"), #imageLiteral(resourceName: "icon-dog"), #imageLiteral(resourceName: "icon-eat"), #imageLiteral(resourceName: "icon-hydrate"), #imageLiteral(resourceName: "icon-shop"), #imageLiteral(resourceName: "icon-run"), #imageLiteral(resourceName: "small-image-test"), #imageLiteral(resourceName: "icon-dog"), #imageLiteral(resourceName: "icon-eat"), #imageLiteral(resourceName: "icon-hydrate"), #imageLiteral(resourceName: "icon-shop"), #imageLiteral(resourceName: "icon-run"), #imageLiteral(resourceName: "small-image-test")]
+    var iconsArray: [UIImage] = [#imageLiteral(resourceName: "icon-dog"), #imageLiteral(resourceName: "icon-eat"), #imageLiteral(resourceName: "icon-hydrate"), #imageLiteral(resourceName: "icon-shop"), #imageLiteral(resourceName: "icon-run"), #imageLiteral(resourceName: "icon-read"), #imageLiteral(resourceName: "icon-yoga"), #imageLiteral(resourceName: "icon-sleep"), #imageLiteral(resourceName: "icon-health"), #imageLiteral(resourceName: "icon-call-parents")]
     var selectedIcon: UIImage? = nil
     var currentCell: IconImageCell? = nil
     
