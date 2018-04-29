@@ -28,7 +28,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         guard let name = nameTextField.text else { return }
         guard let verifiedPassword = passwordVerificationTextField.text else { return }
         if email == "" || password == "" || name == "" || verifiedPassword == "" {
-            let alertController = UIAlertController(title: "Form Error.", message: "Please fill in form completely.", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Form Error", message: "Please fill in form completely.", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alertController.addAction(defaultAction)
             present(alertController, animated: true, completion: nil)
@@ -54,7 +54,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                     
                     
                 } else if password != verifiedPassword {
-                    let alertController = UIAlertController(title: "Verification Error.", message: "The two passwords do not match.", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "Verification Error", message: "The two passwords do not match.", preferredStyle: .alert)
                     let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                     alertController.addAction(defaultAction)
                     self.passwordVerificationTextField.textColor = UIColor.red

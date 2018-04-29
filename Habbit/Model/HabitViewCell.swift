@@ -12,6 +12,7 @@ import UIKit
 class HabitViewCell: UICollectionViewCell {
     
     @IBOutlet weak var habitImageView: UIImageView!
-    
+    @IBOutlet weak var habitCheck: UIImageView!
     @IBOutlet weak var habitLabel: UILabel!
+
 }

@@ -8,11 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		3373E1703F59A5A0CD9DF315 /* Pods_HabbitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F73B4609312EE7FA93D3708F /* Pods_HabbitUITests.framework */; };
+		8A0684FB2092C2C800C0F6F5 /* IconImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0684FA2092C2C800C0F6F5 /* IconImageCell.swift */; };
+		8A0684FF2094012400C0F6F5 /* TrackerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0684FE2094012400C0F6F5 /* TrackerViewCell.swift */; };
+		8A06850220940A5100C0F6F5 /* TrackerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A06850120940A5100C0F6F5 /* TrackerViewCell.xib */; };
+		8A068506209435F400C0F6F5 /* BouncyLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A068505209435F400C0F6F5 /* BouncyLayout.framework */; };
+		8A068508209435F400C0F6F5 /* G3GridView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A068507209435F400C0F6F5 /* G3GridView.framework */; };
 		8A0CFE6A208837E400C4310C /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0CFE69208837E400C4310C /* Habit.swift */; };
 		8A0CFE6C208862A500C4310C /* HabitAdderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0CFE6B208862A500C4310C /* HabitAdderController.swift */; };
+		8A37CC3320966513009E65C6 /* HabitLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A37CC3220966513009E65C6 /* HabitLaunchScreen.storyboard */; };
 		8A3DEC462083EC4A002DE4AD /* HabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3DEC452083EC49002DE4AD /* HabitViewController.swift */; };
 		8A3DEC482083FB8A002DE4AD /* HabitStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3DEC472083FB8A002DE4AD /* HabitStorage.swift */; };
 		8A3DEC4A208403F8002DE4AD /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3DEC49208403F8002DE4AD /* CurrentUser.swift */; };
+		8A9E04772091DBD700188D02 /* Moon2.0-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8A9E04742091DBD400188D02 /* Moon2.0-Light.otf */; };
+		8A9E04782091DBD700188D02 /* Moon2.0-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8A9E04752091DBD500188D02 /* Moon2.0-Bold.otf */; };
+		8A9E04792091DBD700188D02 /* Moon2.0-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8A9E04762091DBD600188D02 /* Moon2.0-Regular.otf */; };
 		8AB45093208D6A0E009AF510 /* HabitViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB45092208D6A0E009AF510 /* HabitViewCell.swift */; };
 		A75CE518F7B781EA9024AAA6 /* Pods_HabbitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A987EC57C86D62E1A4CDAFC8 /* Pods_HabbitTests.framework */; };
 		B774067D4A3AC96550A4FE4C /* Pods_Habbit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D547EE786BF6D5DD93FE27B /* Pods_Habbit.framework */; };
@@ -50,11 +59,21 @@
 		2AF520182E159B846D75EF90 /* Pods-Habbit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Habbit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Habbit/Pods-Habbit.release.xcconfig"; sourceTree = "<group>"; };
 		6C137A26F6AF1EAD6ECD3EC6 /* Pods-HabbitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabbitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HabbitTests/Pods-HabbitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6D547EE786BF6D5DD93FE27B /* Pods_Habbit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Habbit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A0684FA2092C2C800C0F6F5 /* IconImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImageCell.swift; sourceTree = "<group>"; };
+		8A0684FE2094012400C0F6F5 /* TrackerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewCell.swift; sourceTree = "<group>"; };
+		8A06850120940A5100C0F6F5 /* TrackerViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackerViewCell.xib; sourceTree = "<group>"; };
+		8A068503209435E300C0F6F5 /* BouncyLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BouncyLayout.swift; path = Pods/BouncyLayout/BouncyLayout/Classes/BouncyLayout.swift; sourceTree = "<group>"; };
+		8A068505209435F400C0F6F5 /* BouncyLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BouncyLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A068507209435F400C0F6F5 /* G3GridView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = G3GridView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0CFE69208837E400C4310C /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Habit.swift; path = Model/Habit.swift; sourceTree = "<group>"; };
 		8A0CFE6B208862A500C4310C /* HabitAdderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitAdderController.swift; sourceTree = "<group>"; };
+		8A37CC3220966513009E65C6 /* HabitLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = HabitLaunchScreen.storyboard; path = Habbit/HabitLaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		8A3DEC452083EC49002DE4AD /* HabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewController.swift; sourceTree = "<group>"; };
 		8A3DEC472083FB8A002DE4AD /* HabitStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStorage.swift; sourceTree = "<group>"; };
 		8A3DEC49208403F8002DE4AD /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		8A9E04742091DBD400188D02 /* Moon2.0-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Moon2.0-Light.otf"; path = "../../../Adobe/PSD TOOLS/FONTS/Sophisticated/Round or Sharp/Moon/Moon2.0-Light.otf"; sourceTree = "<group>"; };
+		8A9E04752091DBD500188D02 /* Moon2.0-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Moon2.0-Bold.otf"; path = "../../../Adobe/PSD TOOLS/FONTS/Sophisticated/Round or Sharp/Moon/Moon2.0-Bold.otf"; sourceTree = "<group>"; };
+		8A9E04762091DBD600188D02 /* Moon2.0-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Moon2.0-Regular.otf"; path = "../../../Adobe/PSD TOOLS/FONTS/Sophisticated/Round or Sharp/Moon/Moon2.0-Regular.otf"; sourceTree = "<group>"; };
 		8AB45092208D6A0E009AF510 /* HabitViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewCell.swift; sourceTree = "<group>"; };
 		8B0D034D32779CADE02F7EA1 /* Pods-HabbitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabbitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HabbitTests/Pods-HabbitTests.release.xcconfig"; sourceTree = "<group>"; };
 		90E3D89947D2E8FAA39272C4 /* Pods-Habbit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Habbit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Habbit/Pods-Habbit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -86,6 +105,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A068506209435F400C0F6F5 /* BouncyLayout.framework in Frameworks */,
+				8A068508209435F400C0F6F5 /* G3GridView.framework in Frameworks */,
 				B774067D4A3AC96550A4FE4C /* Pods_Habbit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,6 +146,9 @@
 		72FDDA5249EC2B0F30459D74 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A068505209435F400C0F6F5 /* BouncyLayout.framework */,
+				8A068507209435F400C0F6F5 /* G3GridView.framework */,
+				8A068503209435E300C0F6F5 /* BouncyLayout.swift */,
 				6D547EE786BF6D5DD93FE27B /* Pods_Habbit.framework */,
 				A987EC57C86D62E1A4CDAFC8 /* Pods_HabbitTests.framework */,
 				F73B4609312EE7FA93D3708F /* Pods_HabbitUITests.framework */,
@@ -135,8 +159,11 @@
 		CA1206AC2083CA80002C5706 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8A0684FE2094012400C0F6F5 /* TrackerViewCell.swift */,
 				CAC8E109208838D800719BF2 /* HabitNavigationController.swift */,
 				CAC8E10720882F6600719BF2 /* TrackerViewController.swift */,
+				8A37CC3220966513009E65C6 /* HabitLaunchScreen.storyboard */,
+				8A06850120940A5100C0F6F5 /* TrackerViewCell.xib */,
 				CA1206AA2083CA56002C5706 /* LogInViewController.swift */,
 				CA1206AD2083CAD3002C5706 /* SignUpViewController.swift */,
 				8A3DEC452083EC49002DE4AD /* HabitViewController.swift */,
@@ -144,6 +171,7 @@
 				8A3DEC49208403F8002DE4AD /* CurrentUser.swift */,
 				8A0CFE6B208862A500C4310C /* HabitAdderController.swift */,
 				8AB45092208D6A0E009AF510 /* HabitViewCell.swift */,
+				8A0684FA2092C2C800C0F6F5 /* IconImageCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -151,6 +179,9 @@
 		CAA8E4CD2083C7A60004A93A = {
 			isa = PBXGroup;
 			children = (
+				8A9E04752091DBD500188D02 /* Moon2.0-Bold.otf */,
+				8A9E04742091DBD400188D02 /* Moon2.0-Light.otf */,
+				8A9E04762091DBD600188D02 /* Moon2.0-Regular.otf */,
 				CAA8E4D82083C7A60004A93A /* Habbit */,
 				CAA8E4ED2083C7A60004A93A /* HabbitTests */,
 				CAA8E4F82083C7A70004A93A /* HabbitUITests */,
@@ -314,7 +345,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A9E04772091DBD700188D02 /* Moon2.0-Light.otf in Resources */,
+				8A9E04782091DBD700188D02 /* Moon2.0-Bold.otf in Resources */,
+				8A9E04792091DBD700188D02 /* Moon2.0-Regular.otf in Resources */,
+				8A06850220940A5100C0F6F5 /* TrackerViewCell.xib in Resources */,
 				CAA8E4E42083C7A60004A93A /* LaunchScreen.storyboard in Resources */,
+				8A37CC3320966513009E65C6 /* HabitLaunchScreen.storyboard in Resources */,
 				CAA8E5082083C8100004A93A /* GoogleService-Info.plist in Resources */,
 				CAA8E4E12083C7A60004A93A /* Assets.xcassets in Resources */,
 				CAA8E4DF2083C7A60004A93A /* Main.storyboard in Resources */,
@@ -399,6 +435,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Habbit/Pods-Habbit-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BouncyLayout/BouncyLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/G3GridView/G3GridView.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -409,6 +446,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BouncyLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/G3GridView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -431,10 +469,12 @@
 			files = (
 				8AB45093208D6A0E009AF510 /* HabitViewCell.swift in Sources */,
 				CA1206AE2083CAD3002C5706 /* SignUpViewController.swift in Sources */,
+				8A0684FB2092C2C800C0F6F5 /* IconImageCell.swift in Sources */,
 				8A0CFE6C208862A500C4310C /* HabitAdderController.swift in Sources */,
 				CAA8E4DA2083C7A60004A93A /* AppDelegate.swift in Sources */,
 				CA1206AB2083CA56002C5706 /* LogInViewController.swift in Sources */,
 				8A0CFE6A208837E400C4310C /* Habit.swift in Sources */,
+				8A0684FF2094012400C0F6F5 /* TrackerViewCell.swift in Sources */,
 				8A3DEC462083EC4A002DE4AD /* HabitViewController.swift in Sources */,
 				8A3DEC4A208403F8002DE4AD /* CurrentUser.swift in Sources */,
 				CAC8E10820882F6600719BF2 /* TrackerViewController.swift in Sources */,
@@ -606,7 +646,9 @@
 			baseConfigurationReference = 90E3D89947D2E8FAA39272C4 /* Pods-Habbit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZR8862QZ87;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/G3GridView\"",
@@ -629,7 +671,7 @@
 					"${PODS_ROOT}/Firebase/Core/Sources",
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
-					"$(SRCROOT)/Pods/**",
+					"$(SRCROOT)/Pods",
 				);
 				INFOPLIST_FILE = Habbit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -645,7 +687,9 @@
 			baseConfigurationReference = 2AF520182E159B846D75EF90 /* Pods-Habbit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZR8862QZ87;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/G3GridView\"",
@@ -668,7 +712,7 @@
 					"${PODS_ROOT}/Firebase/Core/Sources",
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
-					"$(SRCROOT)/Pods/**",
+					"$(SRCROOT)/Pods",
 				);
 				INFOPLIST_FILE = Habbit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

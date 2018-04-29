@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="izp-iF-0Lp" customClass="TrackerViewCell" customModule="Habbit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jBL-3h-nCa">
+                    <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
+                    <attributedString key="attributedText">
+                        <fragment content=" ">
+                            <attributes>
+                                <color key="NSColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                <font key="NSFont" size="14" name="Moon2.0-Bold"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="clipping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="jBL-3h-nCa" firstAttribute="bottom" secondItem="hX4-u8-J17" secondAttribute="bottom" id="93x-sq-LjE"/>
+                <constraint firstItem="jBL-3h-nCa" firstAttribute="trailing" secondItem="hX4-u8-J17" secondAttribute="trailing" id="Fcq-cf-bV7"/>
+                <constraint firstItem="jBL-3h-nCa" firstAttribute="leading" secondItem="hX4-u8-J17" secondAttribute="leading" id="M1e-f8-qNd"/>
+                <constraint firstItem="jBL-3h-nCa" firstAttribute="top" secondItem="hX4-u8-J17" secondAttribute="top" id="VTh-4Q-OwQ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="hX4-u8-J17"/>
+            <connections>
+                <outlet property="dayLabel" destination="jBL-3h-nCa" id="HqC-gD-Cem"/>
+            </connections>
+            <point key="canvasLocation" x="-286" y="169"/>
+        </view>
+    </objects>
+</document>

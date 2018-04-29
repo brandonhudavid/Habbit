@@ -15,7 +15,6 @@ class CurrentUser {
     
     var username: String!
     var id: String!
-    var readPostIDs: [String]?
     
     init() {
         let currentUser = Auth.auth().currentUser

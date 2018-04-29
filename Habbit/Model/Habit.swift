@@ -12,13 +12,13 @@ import UIKit
 class Habit {
     let habitName: String
     let habitIconPath: String
-    let habitDays: [String]
-    let habitColor: String
+    let habitDays: [String:Bool]
+    let performedToday: Bool
     
-    init(habitName: String, habitIconPath: String, habitDays: [String], habitColor: String) {
+    init(habitName: String, habitIconPath: String, habitDays: [String:Bool], performedToday: Bool) {
         self.habitName = habitName
         self.habitIconPath = habitIconPath
         self.habitDays = habitDays
-        self.habitColor = habitColor
+        self.performedToday = performedToday
     }
 }

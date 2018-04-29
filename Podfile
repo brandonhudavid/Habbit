@@ -14,6 +14,7 @@ target 'Habbit' do
   pod 'SDWebImage'
   pod 'FirebaseDatabase'
   pod 'G3GridView'
+  pod 'BouncyLayout'
 
   target 'HabbitTests' do
     inherit! :search_paths

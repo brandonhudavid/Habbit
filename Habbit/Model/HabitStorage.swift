@@ -13,21 +13,29 @@ import FirebaseStorage
 
 let currentUser = CurrentUser()
 
-func addHabit(habitName: String, habitIcon: UIImage, habitColor: String) {
+func addHabit(habitName: String, habitIcon: UIImage) {
     let dbRef = Database.database().reference()
     let habitIconData = UIImageJPEGRepresentation(habitIcon, 1.0)
     let habitIconPath = "HabitIcons/\(UUID().uuidString)"
     
-//    let dateFormatter = DateFormatter()
-//    dateFormatter.dateFormat = "MM-dd-yyyy"
-//    let dateString = dateFormatter.string(from: Date())
-    var habitDays: [String] = ["sentinel"]
+    var habitDays: [String:Bool] = ["sentinel":true]
     let habitDict: [String:AnyObject] = ["habitIconPath": habitIconPath as String as AnyObject,
-                                         "habitDays": habitDays as [String] as AnyObject,
-                                         "habitColor": habitColor as String as AnyObject]
+                                         "habitDays": habitDays as [String:Bool] as AnyObject,
+                                         "performedToday": false as Bool as AnyObject]
     dbRef.child(currentUser.id).child(habitName).setValue(habitDict)
     store(data: habitIconData, toPath: habitIconPath)
     
+}
+
+func performHabit(habitName: String) {
+    let dbRef = Database.database().reference()
+    // Turn date into string format
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "MM-dd-yyyy"
+    let dateString = dateFormatter.string(from: Date())
+    // Store date in database, set performedToday to true
+    dbRef.child(currentUser.id).child(habitName).child("habitDays").child(dateString).setValue(true)
+    dbRef.child(currentUser.id).child(habitName).child("performedToday").setValue(true)
 }
 
 func store(data: Data?, toPath path: String) {
@@ -39,46 +47,42 @@ func store(data: Data?, toPath path: String) {
     }
 }
 
-func getHabits(completion: @escaping ([Habit]?) -> Void) {
+func getHabits(completionHandler: @escaping ([Habit]) -> ()) {
     let dbRef = Database.database().reference()
     var habitArray: [Habit] = []
     dbRef.child(currentUser.id).observeSingleEvent(of: .value, with: { snapshot -> Void in
         if snapshot.exists() {
-            // Each user's node maps habitName strings to another map that maps attribute names to their respective objects
+            // Iterates through user's habits, adding them to habitArray
             if let habits = snapshot.value as? [String : [String : Any]] {
                 for (key, value) in habits {
-                    print("key: " + key)
+                    // Creating instance variables for Habit object
                     let habitName: String = key
-                    if let iconPath = value["habitIconPath"] as? String, let days = value["habitDays"] as? [String],
-                    let color = value["habitColor"] as? String {
+                    if let iconPath = value["habitIconPath"] as? String, let days = value["habitDays"] as? [String:Bool],
+                        let performed = value["performedToday"] as? Bool {
                         let habitIconPath = iconPath
                         let habitDays = days
-                        let habitColor = color
-                        let newHabit = Habit(habitName: habitName, habitIconPath: habitIconPath, habitDays: habitDays, habitColor: habitColor)
-                        habitArray.append(newHabit)
-                    } else {
-                    completion(nil)
+                        let performedToday = performed
+                        
+                        // Instantiates a Habit object and adds to habitArray
+                        let newHabit = Habit(habitName: habitName, habitIconPath: habitIconPath, habitDays: habitDays, performedToday: performedToday)
+                        habitArray.append(newHabit) // Appends to habitArray
                     }
                 }
-                completion(habitArray)
-            } else {
-                completion(nil)
+                completionHandler(habitArray)
             }
-        } else {
-            completion(nil)
         }
     })
+    completionHandler([])
 }
 
 func getDataFromPath(path: String, completion: @escaping (Data?) -> Void) {
     let storageRef = Storage.storage().reference()
     storageRef.child(path).getData(maxSize: 5 * 1024 * 1024) { (data, error) in
         if let error = error {
-            print("there was an error :(")
+            print(error)
         }
         if let data = data {
             completion(data)
-            print("getDataFromPath successful")
         } else {
             completion(nil)
         }

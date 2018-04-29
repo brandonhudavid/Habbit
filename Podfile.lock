@@ -1,4 +1,5 @@
 PODS:
+  - BouncyLayout (2.0.0)
   - Firebase/Core (4.11.0):
     - FirebaseAnalytics (= 4.1.0)
     - FirebaseCore (= 4.0.18)
@@ -47,6 +48,7 @@ PODS:
   - SDWebImage/Core (4.3.3)
 
 DEPENDENCIES:
+  - BouncyLayout
   - Firebase/Core
   - FirebaseAuth
   - FirebaseDatabase
@@ -57,6 +59,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - BouncyLayout
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -73,6 +76,7 @@ SPEC REPOS:
     - SDWebImage
 
 SPEC CHECKSUMS:
+  BouncyLayout: f64872d6b2a3e41bb8c89e24d0ff08e2dbeeb304
   Firebase: cc13dfab1038c8b45d7903e01fc690451d6d0b24
   FirebaseAnalytics: 3dfae28d4a5e06f86c4fae830efc2ad3fadb19bc
   FirebaseAuth: 147bf340a0706b44ca1753d6b41ebafd9687cfe6
@@ -88,6 +92,6 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
 
-PODFILE CHECKSUM: 92e1f5e1e1548efd836d5de138feeb27247fda27
+PODFILE CHECKSUM: 15578a3edb552bfb8b44cd3bffa74fd5a1303895
 
 COCOAPODS: 1.5.0
