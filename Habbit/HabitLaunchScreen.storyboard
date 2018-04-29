@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,16 +20,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="habbit-splash" translatesAutoresizingMaskIntoConstraints="NO" id="8gX-vE-DnD">
-                                <rect key="frame" x="59" y="205" width="256" height="256"/>
+                                <rect key="frame" x="87" y="205" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="256" id="XV2-wV-OBC"/>
-                                    <constraint firstAttribute="height" constant="256" id="x0x-4t-SBx"/>
+                                    <constraint firstAttribute="width" secondItem="8gX-vE-DnD" secondAttribute="height" multiplier="1:1" id="6tu-gh-9C9"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.94117647059999998" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="8gX-vE-DnD" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="59" id="2Bh-rr-gfC"/>
+                            <constraint firstItem="8gX-vE-DnD" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="87" id="2Bh-rr-gfC"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="8gX-vE-DnD" secondAttribute="trailing" constant="88" id="QzS-zC-sqK"/>
                             <constraint firstItem="8gX-vE-DnD" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="185" id="ojF-xT-JNB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
@@ -36,7 +37,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
     <resources>

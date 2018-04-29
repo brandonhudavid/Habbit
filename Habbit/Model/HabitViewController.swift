@@ -59,13 +59,15 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.habitCollectionView.alpha = 0
         if arrayChanged {
             arrayChanged = !arrayChanged
             updateHabits()
         }
-        self.habitCollectionView.alpha = 0
-        UIView.animate(withDuration: 0.50) {
-            self.habitCollectionView.alpha = 1
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.50) {
+                self.habitCollectionView.alpha = 1
+            }
         }
     }
     
@@ -83,7 +85,7 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
             cell.habitLabel.text = habitNames[indexPath.item]
 //            cell.habitLabel.addCharacterSpacing()
             if (habitsPerformed[habitNames[indexPath.item]])! {
-                cell.habitCheck.image = #imageLiteral(resourceName: "checkmark")
+                cell.habitCheck.image = #imageLiteral(resourceName: "checkmark-icon")
             } else {
                 cell.habitCheck.image = nil
             }
@@ -98,9 +100,9 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
         if (!habitsPerformed[(currentCell?.habitLabel.text)!]!) {
             performHabit(habitName: (currentCell?.habitLabel.text)!)
             habitsPerformed[(currentCell?.habitLabel.text)!] = true
-            currentCell?.habitCheck.image = #imageLiteral(resourceName: "checkmark")
+            currentCell?.habitCheck.image = #imageLiteral(resourceName: "checkmark-icon")
             currentCell?.habitCheck.alpha = 0
-            UIView.animate(withDuration: 0.25) {
+            UIView.animate(withDuration: 0.2) {
                 currentCell?.habitCheck.alpha = 1
             }
         }
@@ -128,6 +130,9 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
                     }
                     DispatchQueue.main.async(execute: self.habitCollectionView.reloadData)
                 })
+            }
+            UIView.animate(withDuration: 0.50) {
+                self.habitCollectionView.alpha = 1
             }
         }
     }
