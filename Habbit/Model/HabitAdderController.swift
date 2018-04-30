@@ -17,13 +17,14 @@ class HabitAdderController: UIViewController, UICollectionViewDataSource, UIColl
     
     @IBOutlet weak var habitName: UITextField!
     
-    var iconsArray: [UIImage] = [#imageLiteral(resourceName: "icon-dog"), #imageLiteral(resourceName: "icon-eat"), #imageLiteral(resourceName: "icon-hydrate"), #imageLiteral(resourceName: "icon-shop"), #imageLiteral(resourceName: "icon-run"), #imageLiteral(resourceName: "icon-read"), #imageLiteral(resourceName: "icon-yoga"), #imageLiteral(resourceName: "icon-sleep"), #imageLiteral(resourceName: "icon-health"), #imageLiteral(resourceName: "icon-call-parents")]
+    var iconsArray: [UIImage] = [#imageLiteral(resourceName: "icon_dog"), #imageLiteral(resourceName: "icon-read"), #imageLiteral(resourceName: "icon-yoga"), #imageLiteral(resourceName: "icon-sleep"), #imageLiteral(resourceName: "icon-health"), #imageLiteral(resourceName: "icon-call-parents"), #imageLiteral(resourceName: "icon_drink"), #imageLiteral(resourceName: "icon_eat"), #imageLiteral(resourceName: "icon_shop"), #imageLiteral(resourceName: "icon_run")]
     var selectedIcon: UIImage? = nil
     var currentCell: IconImageCell? = nil
     
     @IBOutlet weak var iconCollectionView: UICollectionView!
     let layout = BouncyLayout()
     
+    @IBOutlet weak var iconCVShadow: UIView!
     @IBOutlet weak var buttonText: UIButton!
     
     @IBAction func adderButton(_ sender: Any) {
@@ -67,7 +68,24 @@ class HabitAdderController: UIViewController, UICollectionViewDataSource, UIColl
         iconCollectionView.dataSource = self
         layout.scrollDirection = .horizontal
         iconCollectionView.collectionViewLayout = layout
+        iconCollectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        iconCollectionView.layer.cornerRadius = 10
+        
+        iconCVShadow.layer.cornerRadius = 10
+        iconCVShadow.layer.shadowColor = UIColor.black.cgColor
+        iconCVShadow.layer.shadowOpacity = 0.2
+        iconCVShadow.layer.shadowOffset = CGSize.init(width: 1.5, height: 1.5)
+        iconCVShadow.layer.shadowRadius = 2
+        iconCVShadow.layer.shouldRasterize = true
+        
         iconCollectionView.reloadData()
+        
+        buttonText.layer.cornerRadius = 20
+        buttonText.layer.shadowColor = UIColor.black.cgColor
+        buttonText.layer.shadowOpacity = 0.2
+        buttonText.layer.shadowOffset = CGSize.init(width: 1.5, height: 1.5)
+        buttonText.layer.shadowRadius = 2
+        buttonText.layer.shouldRasterize = true
     }
     
     // Hide keyboard when user touches outside

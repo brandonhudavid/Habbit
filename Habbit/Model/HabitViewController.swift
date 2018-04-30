@@ -41,9 +41,13 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
     var habitIcons: [String:UIImage] = [:]
     var habitsPerformed: [String:Bool] = [:]
     var arrayChanged: Bool = false
-    
     var blahediting: Bool = false
     
+    let username: String = CurrentUser().username
+    var welcomeString: String?
+    let deleteString = "Tap a habit's icon to edit the habit. \n Or, press the red X to delete."
+    
+    @IBOutlet weak var welcomeTextView: UIView!
     @IBOutlet weak var welcomeText: UILabel!
     @IBOutlet weak var addBarButtonItem: UIBarButtonItem!
     
@@ -53,6 +57,9 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     override func viewDidLoad() {
         updateHabits()
+        
+        welcomeString = "Welcome back, " + username + "! \n Click an icon below if you \n performed a habit today."
+        
 //        welcomeText.addCharacterSpacing()
         super.viewDidLoad()
         habitCollectionView.delegate = self
@@ -61,18 +68,25 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
         self.view.backgroundColor = UIColor.init(red: 255.0/255.0, green: 240.0/255.0, blue: 229.0/255.0, alpha: 1.0)
         
         navigationItem.leftBarButtonItem = editButtonItem
+        
+        welcomeText.text = welcomeString
+        welcomeTextView.layer.shadowColor = UIColor.black.cgColor
+        welcomeTextView.layer.shadowOpacity = 0.3
+        welcomeTextView.layer.shadowOffset = CGSize.zero
+        welcomeTextView.layer.shadowRadius = 7
+        welcomeTextView.layer.shouldRasterize = true
+        
+        habitCollectionView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.habitCollectionView.alpha = 0
         if arrayChanged {
             arrayChanged = !arrayChanged
-            updateHabits()
+            DispatchQueue.main.async(execute: updateHabits)
         }
-        DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.50) {
-                self.habitCollectionView.alpha = 1
-            }
+        UIView.animate(withDuration: 0.50) {
+            self.habitCollectionView.alpha = 1
         }
     }
     
@@ -83,21 +97,29 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "habitCell", for: indexPath) as? HabitViewCell {
-    
+
             if (blahediting) {
                 cell.deleteButton.isHidden = false
             } else {
                 cell.deleteButton.isHidden = true
             }
-            
+
             cell.backgroundColor = UIColor.white
             cell.layer.cornerRadius = 10
+            
+            cell.habitCell.layer.cornerRadius = 10
+            cell.habitCell.layer.shadowColor = UIColor.black.cgColor
+            cell.habitCell.layer.shadowOpacity = 0.2
+            cell.habitCell.layer.shadowOffset = CGSize.init(width: 1.5, height: 1.5)
+            cell.habitCell.layer.shadowRadius = 2
+            cell.habitCell.layer.shouldRasterize = true
+            
             
             cell.delegate = self
             
             cell.habitImageView.image = habitIcons[habitNames[indexPath.item]]
             cell.habitLabel.text = habitNames[indexPath.item]
-//            cell.habitLabel.addCharacterSpacing()
+
             if (habitsPerformed[habitNames[indexPath.item]])! {
                 cell.habitCheck.image = #imageLiteral(resourceName: "checkmark-icon")
             } else {
@@ -111,13 +133,15 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         var currentCell = habitCollectionView.cellForItem(at: indexPath) as? HabitViewCell
-        if (!habitsPerformed[(currentCell?.habitLabel.text)!]!) {
-            performHabit(habitName: (currentCell?.habitLabel.text)!)
-            habitsPerformed[(currentCell?.habitLabel.text)!] = true
-            currentCell?.habitCheck.image = #imageLiteral(resourceName: "checkmark-icon")
-            currentCell?.habitCheck.alpha = 0
-            UIView.animate(withDuration: 0.2) {
-                currentCell?.habitCheck.alpha = 1
+        if !blahediting {
+            if (!habitsPerformed[(currentCell?.habitLabel.text)!]!) {
+                performHabit(habitName: (currentCell?.habitLabel.text)!)
+                habitsPerformed[(currentCell?.habitLabel.text)!] = true
+                currentCell?.habitCheck.image = #imageLiteral(resourceName: "checkmark-icon")
+                currentCell?.habitCheck.alpha = 0
+                UIView.animate(withDuration: 0.2) {
+                    currentCell?.habitCheck.alpha = 1
+                }
             }
         }
         
@@ -142,11 +166,8 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
                             self.habitsPerformed[habit.habitName] = habit.performedToday
                         }
                     }
-                    DispatchQueue.main.async(execute: self.habitCollectionView.reloadData)
+                    self.habitCollectionView.reloadData()
                 })
-            }
-            UIView.animate(withDuration: 0.50) {
-                self.habitCollectionView.alpha = 1
             }
         }
     }
@@ -157,6 +178,11 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         addBarButtonItem.isEnabled = !editing
         self.blahediting = !self.blahediting
+        if self.blahediting {
+            welcomeText.text = deleteString
+        } else {
+            welcomeText.text = welcomeString
+        }
         self.habitCollectionView.reloadItems(at: self.habitCollectionView.indexPathsForVisibleItems)
     }
 
