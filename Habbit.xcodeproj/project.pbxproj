@@ -38,6 +38,7 @@
 		CAA8E4EF2083C7A60004A93A /* HabbitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA8E4EE2083C7A60004A93A /* HabbitTests.swift */; };
 		CAA8E4FA2083C7A70004A93A /* HabbitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA8E4F92083C7A70004A93A /* HabbitUITests.swift */; };
 		CAA8E5082083C8100004A93A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CAA8E5072083C8100004A93A /* GoogleService-Info.plist */; };
+		CAAE6C8B2097C6FD008A7BCE /* AnnotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAE6C8A2097C6FD008A7BCE /* AnnotationViewController.swift */; };
 		CAC8E10820882F6600719BF2 /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC8E10720882F6600719BF2 /* TrackerViewController.swift */; };
 		CAC8E10A208838D800719BF2 /* HabitNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC8E109208838D800719BF2 /* HabitNavigationController.swift */; };
 /* End PBXBuildFile section */
@@ -101,6 +102,7 @@
 		CAA8E4F92083C7A70004A93A /* HabbitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabbitUITests.swift; sourceTree = "<group>"; };
 		CAA8E4FB2083C7A70004A93A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAA8E5072083C8100004A93A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		CAAE6C8A2097C6FD008A7BCE /* AnnotationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationViewController.swift; sourceTree = "<group>"; };
 		CAC8E10720882F6600719BF2 /* TrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewController.swift; sourceTree = "<group>"; };
 		CAC8E109208838D800719BF2 /* HabitNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitNavigationController.swift; sourceTree = "<group>"; };
 		D66BE360810A465EEEA8D1C8 /* Pods-HabbitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabbitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HabbitUITests/Pods-HabbitUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				8A3DEC49208403F8002DE4AD /* CurrentUser.swift */,
 				8A0CFE6B208862A500C4310C /* HabitAdderController.swift */,
 				8AB45092208D6A0E009AF510 /* HabitViewCell.swift */,
+				CAAE6C8A2097C6FD008A7BCE /* AnnotationViewController.swift */,
 				8A0684FA2092C2C800C0F6F5 /* IconImageCell.swift */,
 			);
 			path = Model;
@@ -454,6 +457,7 @@
 				"${BUILT_PRODUCTS_DIR}/BouncyLayout/BouncyLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/G3GridView/G3GridView.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/Gecco/Gecco.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -465,6 +469,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BouncyLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/G3GridView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gecco.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -496,6 +501,7 @@
 				CAC8E10820882F6600719BF2 /* TrackerViewController.swift in Sources */,
 				CAC8E10A208838D800719BF2 /* HabitNavigationController.swift in Sources */,
 				8A3DEC482083FB8A002DE4AD /* HabitStorage.swift in Sources */,
+				CAAE6C8B2097C6FD008A7BCE /* AnnotationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,6 +15,7 @@ target 'Habbit' do
   pod 'FirebaseDatabase'
   pod 'G3GridView'
   pod 'BouncyLayout'
+  pod 'Gecco'
 
   target 'HabbitTests' do
     inherit! :search_paths
