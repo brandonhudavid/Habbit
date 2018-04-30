@@ -187,7 +187,13 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
 
     @IBAction func addHabitButton(_ sender: Any) {
-        performSegue(withIdentifier: "segueToAdderVC", sender: self)
+        performSegue(withIdentifier: "segueToAdderVC", sender: habitNames)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let habitAdder = segue.destination as? HabitAdderController {
+            habitAdder.habitNames = sender as! [String?]
+        }
     }
     
     @IBAction func unwindToHabitVC(segue:UIStoryboardSegue) { }
