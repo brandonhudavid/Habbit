@@ -50,6 +50,7 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     override func viewDidLoad() {
         updateHabits()
+        
 //        welcomeText.addCharacterSpacing()
         super.viewDidLoad()
         habitCollectionView.delegate = self
@@ -62,12 +63,10 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
         self.habitCollectionView.alpha = 0
         if arrayChanged {
             arrayChanged = !arrayChanged
-            updateHabits()
+            DispatchQueue.main.async(execute: updateHabits)
         }
-        DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.50) {
-                self.habitCollectionView.alpha = 1
-            }
+        UIView.animate(withDuration: 0.50) {
+            self.habitCollectionView.alpha = 1
         }
     }
     
@@ -78,6 +77,7 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "habitCell", for: indexPath) as? HabitViewCell {
+//            cell.alpha = 0
             cell.backgroundColor = UIColor.white
             cell.layer.cornerRadius = 10
             
@@ -128,11 +128,8 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
                             self.habitsPerformed[habit.habitName] = habit.performedToday
                         }
                     }
-                    DispatchQueue.main.async(execute: self.habitCollectionView.reloadData)
+                    self.habitCollectionView.reloadData()
                 })
-            }
-            UIView.animate(withDuration: 0.50) {
-                self.habitCollectionView.alpha = 1
             }
         }
     }

@@ -68,6 +68,7 @@ func getHabits(completionHandler: @escaping ([Habit]) -> ()) {
                         habitArray.append(newHabit) // Appends to habitArray
                     }
                 }
+//                habitArray = habitArray.sorted { $0.habitName.lowercased() < $1.habitName.lowercased() }
                 completionHandler(habitArray)
             }
         }

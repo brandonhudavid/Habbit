@@ -12,17 +12,39 @@ import G3GridView
 
 var updateGrid: Bool = false
 
+extension Date {
+    var yesterday: Date {
+        return Calendar.current.date(byAdding: .day, value: -1, to: noon)!
+    }
+    var tomorrow: Date {
+        return Calendar.current.date(byAdding: .day, value: 1, to: noon)!
+    }
+    var noon: Date {
+        return Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: self)!
+    }
+    var month: Int {
+        return Calendar.current.component(.month,  from: self)
+    }
+    var isLastDayOfMonth: Bool {
+        return tomorrow.month != month
+    }
+}
+
 class TrackerViewController: UIViewController {
     
     var habitNames: [String] = []
     let lightOrange = UIColor.init(red: 255/255, green: 240/255, blue: 229/255, alpha: 1)
     let darkOrange = UIColor.init(red: 249/255, green: 169/255, blue: 75/255, alpha: 1)
+    let currentDate = Date()
+    let dateFormatter = DateFormatter()
+    
     
     @IBOutlet weak var trackerGridView: GridView!
     
     override func viewDidLoad() {
         updateTracker()
         super.viewDidLoad()
+        dateFormatter.dateFormat = "MM-dd"
         trackerGridView.register(TrackerViewCell.nib, forCellWithReuseIdentifier: "TrackerViewCell")
         trackerGridView.isInfinitable = false
         trackerGridView.dataSource = self
@@ -37,6 +59,10 @@ class TrackerViewController: UIViewController {
         if updateGrid {
             updateGrid = !updateGrid
             updateTracker()
+        }
+        self.trackerGridView.alpha = 0
+        UIView.animate(withDuration: 0.2) {
+            self.trackerGridView.alpha = 1
         }
     }
 
@@ -67,6 +93,9 @@ extension TrackerViewController: GridViewDataSource, GridViewDelegate {
     }
     
     func gridView(_ gridView: GridView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 90
+        }
         return 45
     }
     
@@ -99,6 +128,11 @@ extension TrackerViewController: GridViewDataSource, GridViewDelegate {
                     cell.dayLabel.text = "Thurs"
                 case 6:
                     cell.dayLabel.text = "Fri"
+                    let yesterdayDate = currentDate.yesterday
+                    let dateString = dateFormatter.string(from: yesterdayDate)
+                    cell.dayLabel.text = cell.dayLabel.text! + " \n"
+                    cell.dayLabel.text = cell.dayLabel.text! + dateString
+                    
                 case 7:
                     cell.dayLabel.text = "Sat"
                 default:
