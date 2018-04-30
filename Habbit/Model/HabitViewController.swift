@@ -42,7 +42,10 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
     var habitsPerformed: [String:Bool] = [:]
     var arrayChanged: Bool = false
     
+    var blahediting: Bool = false
+    
     @IBOutlet weak var welcomeText: UILabel!
+    @IBOutlet weak var addBarButtonItem: UIBarButtonItem!
     
     @IBOutlet weak var habitCollectionView: UICollectionView!
     let layout = BouncyLayout()
@@ -56,6 +59,8 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
         habitCollectionView.dataSource = self
         habitCollectionView.collectionViewLayout = layout
         self.view.backgroundColor = UIColor.init(red: 255.0/255.0, green: 240.0/255.0, blue: 229.0/255.0, alpha: 1.0)
+        
+        navigationItem.leftBarButtonItem = editButtonItem
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,8 +83,17 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "habitCell", for: indexPath) as? HabitViewCell {
+    
+            if (blahediting) {
+                cell.deleteButton.isHidden = false
+            } else {
+                cell.deleteButton.isHidden = true
+            }
+            
             cell.backgroundColor = UIColor.white
             cell.layer.cornerRadius = 10
+            
+            cell.delegate = self
             
             cell.habitImageView.image = habitIcons[habitNames[indexPath.item]]
             cell.habitLabel.text = habitNames[indexPath.item]
@@ -136,6 +150,15 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
             }
         }
     }
+    
+    // Delete habits
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        
+        addBarButtonItem.isEnabled = !editing
+        self.blahediting = !self.blahediting
+        self.habitCollectionView.reloadItems(at: self.habitCollectionView.indexPathsForVisibleItems)
+    }
 
     @IBAction func addHabitButton(_ sender: Any) {
         performSegue(withIdentifier: "segueToAdderVC", sender: self)
@@ -143,4 +166,21 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     @IBAction func unwindToHabitVC(segue:UIStoryboardSegue) { }
     
+}
+
+// Deleting habits - delegate extension
+extension HabitViewController: HabitViewCellDelegate {
+    func delete(cell: HabitViewCell) {
+        if let indexPath = habitCollectionView?.indexPath(for: cell) {
+            // delete from data source
+            removeHabit(habitName: habitNames[indexPath.item])
+            // delete from collectionView
+            self.habitCollectionView.performBatchUpdates( {
+                habitNames.remove(at: indexPath.item)
+                self.habitCollectionView.deleteItems(at: [indexPath])
+            }) { (finished) in
+                self.habitCollectionView.reloadItems(at: self.habitCollectionView.indexPathsForVisibleItems)
+            }
+        }
+    }
 }

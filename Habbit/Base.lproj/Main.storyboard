@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vam-ij-vud">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vam-ij-vud">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -91,6 +91,13 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gyB-8u-Njk">
                                                     <rect key="frame" x="85" y="14" width="25" height="25"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HtK-YM-YYa">
+                                                    <rect key="frame" x="12" y="15" width="25" height="25"/>
+                                                    <state key="normal" image="delete"/>
+                                                    <connections>
+                                                        <action selector="deleteButtonTapped:" destination="DGP-bY-rE2" eventType="touchUpInside" id="xp3-kB-5mU"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <constraints>
@@ -100,12 +107,17 @@
                                             <constraint firstItem="62v-Wy-zch" firstAttribute="top" secondItem="gyB-8u-Njk" secondAttribute="bottom" constant="81" id="QQT-2G-VFp"/>
                                             <constraint firstAttribute="bottom" secondItem="62v-Wy-zch" secondAttribute="bottom" constant="10" id="Rqh-tJ-OQu"/>
                                             <constraint firstItem="gyB-8u-Njk" firstAttribute="leading" secondItem="DGP-bY-rE2" secondAttribute="leadingMargin" constant="77" id="S3b-6f-ZpF"/>
+                                            <constraint firstItem="HtK-YM-YYa" firstAttribute="top" secondItem="DGP-bY-rE2" secondAttribute="topMargin" constant="7" id="cbS-xd-OGe"/>
+                                            <constraint firstItem="HtK-YM-YYa" firstAttribute="leading" secondItem="DGP-bY-rE2" secondAttribute="leadingMargin" constant="4" id="f7k-py-cMC"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="gyB-8u-Njk" secondAttribute="trailing" constant="2" id="hDR-q4-dvJ"/>
                                             <constraint firstItem="Vk8-xM-QMV" firstAttribute="leading" secondItem="DGP-bY-rE2" secondAttribute="leading" constant="5" id="m0x-oC-K3d"/>
+                                            <constraint firstItem="62v-Wy-zch" firstAttribute="top" secondItem="HtK-YM-YYa" secondAttribute="bottom" constant="80" id="sow-lT-peb"/>
+                                            <constraint firstItem="gyB-8u-Njk" firstAttribute="leading" secondItem="HtK-YM-YYa" secondAttribute="trailing" constant="48" id="vJK-F2-uzS"/>
                                             <constraint firstAttribute="trailing" secondItem="62v-Wy-zch" secondAttribute="trailing" id="xPp-gi-WHe"/>
                                             <constraint firstItem="gyB-8u-Njk" firstAttribute="top" secondItem="DGP-bY-rE2" secondAttribute="topMargin" constant="6" id="za5-Do-UbP"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="deleteButton" destination="HtK-YM-YYa" id="oVb-IM-5pu"/>
                                             <outlet property="habitCheck" destination="gyB-8u-Njk" id="JlV-eL-udN"/>
                                             <outlet property="habitImageView" destination="Vk8-xM-QMV" id="QpA-81-EIq"/>
                                             <outlet property="habitLabel" destination="62v-Wy-zch" id="zkJ-Mo-KEh"/>
@@ -148,6 +160,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addBarButtonItem" destination="EPc-Uj-bs0" id="xTv-3K-6eS"/>
                         <outlet property="habitCollectionView" destination="gZ5-F8-gMw" id="hSM-Dc-YyN"/>
                         <outlet property="welcomeText" destination="hzP-Vd-PTa" id="pDL-j8-vGJ"/>
                         <segue destination="9hE-Q6-QFI" kind="show" identifier="segueToAdderVC" id="1he-Tm-qIa"/>
@@ -517,6 +530,9 @@
             <point key="canvasLocation" x="513.60000000000002" y="-125.93703148425789"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="delete" width="501" height="501"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Zgd-hQ-w85"/>
     </inferredMetricsTieBreakers>

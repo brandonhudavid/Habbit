@@ -27,6 +27,16 @@ func addHabit(habitName: String, habitIcon: UIImage) {
     
 }
 
+func removeHabit(habitName: String) {
+    let dbRef = Database.database().reference()
+    
+    dbRef.child(currentUser.id).child(habitName).removeValue() { (error, dbRef) in
+        if error != nil {
+            print("error \(error)")
+        }
+    }
+}
+
 func performHabit(habitName: String) {
     let dbRef = Database.database().reference()
     // Turn date into string format

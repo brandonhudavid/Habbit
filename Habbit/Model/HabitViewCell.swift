@@ -9,10 +9,20 @@
 import Foundation
 import UIKit
 
+protocol HabitViewCellDelegate: class {
+    func delete(cell: HabitViewCell)
+}
+
 class HabitViewCell: UICollectionViewCell {
     
     @IBOutlet weak var habitImageView: UIImageView!
     @IBOutlet weak var habitCheck: UIImageView!
     @IBOutlet weak var habitLabel: UILabel!
-
+    @IBOutlet weak var deleteButton: UIButton!
+    
+    weak var delegate: HabitViewCellDelegate?
+    
+    @IBAction func deleteButtonTapped(_ sender: Any) {
+        delegate?.delete(cell: self)
+    }
 }
