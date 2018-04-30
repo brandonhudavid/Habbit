@@ -144,7 +144,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRC-ak-1Z1">
                                 <rect key="frame" x="0.0" y="64" width="375" height="100"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back! Click an icon below if you performed a habit today." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzP-Vd-PTa">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="welcome text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzP-Vd-PTa">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                         <color key="backgroundColor" red="0.97647058823529409" green="0.66274509803921566" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -207,34 +207,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Habit name..." minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="IiR-mu-v5I">
-                                <rect key="frame" x="33" y="124" width="308" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Habit name..." adjustsFontSizeToFit="NO" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="IiR-mu-v5I">
+                                <rect key="frame" x="33" y="184" width="308" height="35"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <attributedString key="attributedText"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="79g-HW-kTk"/>
+                                </constraints>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Habit Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZS-kG-Zcp">
-                                <rect key="frame" x="33" y="93" width="120" height="24"/>
-                                <color key="backgroundColor" red="0.97647058819999999" green="0.66274509800000003" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="fKe-B7-W2l"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="18"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose an icon:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7M-n7-XZ2">
-                                <rect key="frame" x="33" y="169" width="164" height="24"/>
-                                <color key="backgroundColor" red="0.97647058819999999" green="0.66274509800000003" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="YzV-ZH-77i"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="18"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C59-eN-Npe">
-                                <rect key="frame" x="108" y="576" width="159" height="41"/>
+                                <rect key="frame" x="108" y="604" width="159" height="41"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66274509800000003" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="lF4-5q-7BY"/>
@@ -249,7 +233,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JVk-7f-WOd">
-                                <rect key="frame" x="33" y="201" width="308" height="350"/>
+                                <rect key="frame" x="33" y="234" width="308" height="350"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SZf-ge-NDK">
                                         <rect key="frame" x="0.0" y="0.0" width="308" height="350"/>
@@ -290,33 +274,48 @@
                                     <constraint firstItem="SZf-ge-NDK" firstAttribute="top" secondItem="JVk-7f-WOd" secondAttribute="top" id="uso-xr-e3h"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1t-DN-tJ2">
+                                <rect key="frame" x="0.0" y="64" width="375" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add habit" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eD7-xC-syc">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                        <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97647058819999999" green="0.66274509800000003" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="eD7-xC-syc" firstAttribute="top" secondItem="G1t-DN-tJ2" secondAttribute="top" id="0Nu-Qs-U1m"/>
+                                    <constraint firstAttribute="height" constant="100" id="Twg-G5-zL9"/>
+                                    <constraint firstAttribute="trailing" secondItem="eD7-xC-syc" secondAttribute="trailing" id="ZTr-PW-7Eu"/>
+                                    <constraint firstAttribute="bottom" secondItem="eD7-xC-syc" secondAttribute="bottom" id="ago-Nb-qi9"/>
+                                    <constraint firstItem="eD7-xC-syc" firstAttribute="leading" secondItem="G1t-DN-tJ2" secondAttribute="leading" id="n45-wn-5US"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.97647058819999999" green="0.66274509800000003" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="C59-eN-Npe" firstAttribute="top" secondItem="JVk-7f-WOd" secondAttribute="bottom" constant="25" id="0gb-3c-hGg"/>
-                            <constraint firstItem="FZS-kG-Zcp" firstAttribute="top" secondItem="zT7-LC-EjG" secondAttribute="top" constant="29" id="2ry-mV-ADB"/>
                             <constraint firstItem="zT7-LC-EjG" firstAttribute="trailing" secondItem="IiR-mu-v5I" secondAttribute="trailing" constant="34" id="5dP-FA-RdX"/>
+                            <constraint firstItem="G1t-DN-tJ2" firstAttribute="leading" secondItem="zT7-LC-EjG" secondAttribute="leading" id="84f-gw-Lro"/>
                             <constraint firstItem="zT7-LC-EjG" firstAttribute="trailing" secondItem="C59-eN-Npe" secondAttribute="trailing" constant="108" id="Fc7-Z8-BBR"/>
-                            <constraint firstItem="FZS-kG-Zcp" firstAttribute="leading" secondItem="zT7-LC-EjG" secondAttribute="leading" constant="33" id="PfO-xs-swa"/>
-                            <constraint firstItem="JVk-7f-WOd" firstAttribute="top" secondItem="L7M-n7-XZ2" secondAttribute="bottom" constant="8" id="Vyf-QD-M5Y"/>
+                            <constraint firstItem="IiR-mu-v5I" firstAttribute="top" secondItem="G1t-DN-tJ2" secondAttribute="bottom" constant="20" id="LN5-kQ-wC1"/>
+                            <constraint firstItem="G1t-DN-tJ2" firstAttribute="top" secondItem="zT7-LC-EjG" secondAttribute="top" id="MlM-9b-oF9"/>
+                            <constraint firstItem="C59-eN-Npe" firstAttribute="top" secondItem="JVk-7f-WOd" secondAttribute="bottom" constant="20" id="Vtj-Ne-TcP"/>
                             <constraint firstItem="IiR-mu-v5I" firstAttribute="leading" secondItem="zT7-LC-EjG" secondAttribute="leading" constant="33" id="X16-cm-qGK"/>
-                            <constraint firstItem="zT7-LC-EjG" firstAttribute="trailing" secondItem="FZS-kG-Zcp" secondAttribute="trailing" constant="222" id="X1p-i4-RVB"/>
-                            <constraint firstItem="JVk-7f-WOd" firstAttribute="top" secondItem="L7M-n7-XZ2" secondAttribute="bottom" constant="8" id="YFU-uV-aEP"/>
-                            <constraint firstItem="L7M-n7-XZ2" firstAttribute="leading" secondItem="zT7-LC-EjG" secondAttribute="leading" constant="33" id="daU-2a-QLP"/>
-                            <constraint firstItem="L7M-n7-XZ2" firstAttribute="top" secondItem="IiR-mu-v5I" secondAttribute="bottom" constant="15" id="iZZ-UR-LhD"/>
-                            <constraint firstItem="IiR-mu-v5I" firstAttribute="top" secondItem="FZS-kG-Zcp" secondAttribute="bottom" constant="7" id="k0p-Gw-UNr"/>
+                            <constraint firstItem="G1t-DN-tJ2" firstAttribute="trailing" secondItem="zT7-LC-EjG" secondAttribute="trailing" id="ivZ-sv-1ps"/>
                             <constraint firstItem="JVk-7f-WOd" firstAttribute="leading" secondItem="zT7-LC-EjG" secondAttribute="leading" constant="33" id="mFz-pH-3av"/>
                             <constraint firstItem="C59-eN-Npe" firstAttribute="leading" secondItem="zT7-LC-EjG" secondAttribute="leading" constant="108" id="mdL-uA-YoA"/>
                             <constraint firstItem="zT7-LC-EjG" firstAttribute="trailing" secondItem="JVk-7f-WOd" secondAttribute="trailing" constant="34" id="voX-5t-dam"/>
-                            <constraint firstItem="zT7-LC-EjG" firstAttribute="trailing" secondItem="L7M-n7-XZ2" secondAttribute="trailing" constant="178" id="wxP-w5-LHe"/>
+                            <constraint firstItem="JVk-7f-WOd" firstAttribute="top" secondItem="IiR-mu-v5I" secondAttribute="bottom" constant="15" id="xV2-xf-7Lh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zT7-LC-EjG"/>
                     </view>
                     <connections>
+                        <outlet property="addHeader" destination="G1t-DN-tJ2" id="hJA-3E-wXX"/>
+                        <outlet property="addHeaderText" destination="eD7-xC-syc" id="mUI-sK-agP"/>
                         <outlet property="buttonText" destination="C59-eN-Npe" id="Uy9-vW-q7P"/>
-                        <outlet property="chooseLabel" destination="L7M-n7-XZ2" id="gTz-T1-r82"/>
-                        <outlet property="habitLabel" destination="FZS-kG-Zcp" id="xas-nZ-LZj"/>
                         <outlet property="habitName" destination="IiR-mu-v5I" id="B9l-Vc-heG"/>
                         <outlet property="iconCVShadow" destination="JVk-7f-WOd" id="bmH-4O-R9n"/>
                         <outlet property="iconCollectionView" destination="SZf-ge-NDK" id="vfW-Fx-CJb"/>

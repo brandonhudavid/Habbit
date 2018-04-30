@@ -12,14 +12,16 @@ import BouncyLayout
 
 class HabitAdderController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     
-    @IBOutlet weak var habitLabel: UILabel!
-    @IBOutlet weak var chooseLabel: UILabel!
+    
+    @IBOutlet weak var addHeader: UIView!
+    @IBOutlet weak var addHeaderText: UILabel!
     
     @IBOutlet weak var habitName: UITextField!
     
     var iconsArray: [UIImage] = [#imageLiteral(resourceName: "icon_dog"), #imageLiteral(resourceName: "icon-read"), #imageLiteral(resourceName: "icon-yoga"), #imageLiteral(resourceName: "icon-sleep"), #imageLiteral(resourceName: "icon-health"), #imageLiteral(resourceName: "icon-call-parents"), #imageLiteral(resourceName: "icon_drink"), #imageLiteral(resourceName: "icon_eat"), #imageLiteral(resourceName: "icon_shop"), #imageLiteral(resourceName: "icon_run")]
     var selectedIcon: UIImage? = nil
     var currentCell: IconImageCell? = nil
+    var habitNames: [String?] = []
     
     @IBOutlet weak var iconCollectionView: UICollectionView!
     let layout = BouncyLayout()
@@ -40,6 +42,11 @@ class HabitAdderController: UIViewController, UICollectionViewDataSource, UIColl
                 present(alertController, animated: true, completion: nil)
         } else if selectedIcon == nil {
             let alertController = UIAlertController(title: "Missing a Habit Icon", message: "Please select a habit icon.", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
+            present(alertController, animated: true, completion: nil)
+        } else if habitNames.contains(habitName.text) {
+            let alertController = UIAlertController(title: "Habit Already Exists", message: "You already have a habit with this name. Please choose a different name.", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alertController.addAction(defaultAction)
             present(alertController, animated: true, completion: nil)
@@ -80,12 +87,25 @@ class HabitAdderController: UIViewController, UICollectionViewDataSource, UIColl
         
         iconCollectionView.reloadData()
         
+        habitName.layer.shadowColor = UIColor.black.cgColor
+        habitName.layer.shadowOpacity = 0.2
+        habitName.layer.shadowOffset = CGSize.init(width: 1.5, height: 1.5)
+        habitName.layer.shadowRadius = 1.5
+        habitName.layer.shouldRasterize = true
+        
         buttonText.layer.cornerRadius = 20
         buttonText.layer.shadowColor = UIColor.black.cgColor
         buttonText.layer.shadowOpacity = 0.2
         buttonText.layer.shadowOffset = CGSize.init(width: 1.5, height: 1.5)
         buttonText.layer.shadowRadius = 2
         buttonText.layer.shouldRasterize = true
+        
+        addHeaderText.text = "Create a name and select an icon for your new habit."
+        addHeader.layer.shadowColor = UIColor.black.cgColor
+        addHeader.layer.shadowOpacity = 0.3
+        addHeader.layer.shadowOffset = CGSize.zero
+        addHeader.layer.shadowRadius = 7
+        addHeader.layer.shouldRasterize = true
     }
     
     // Hide keyboard when user touches outside
