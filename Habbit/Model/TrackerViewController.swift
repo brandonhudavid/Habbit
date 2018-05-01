@@ -34,6 +34,7 @@ class TrackerViewController: UIViewController {
     
     var habitNames: [String] = []
     var habitDaysMap: [String:[String]] = [:]
+    var habitIconsMap: [String:UIImage] = [:]
     let lightOrange = UIColor.init(red: 255/255, green: 240/255, blue: 229/255, alpha: 1)
     let darkOrange = UIColor.init(red: 249/255, green: 169/255, blue: 75/255, alpha: 1)
     let currentDate = Date()
@@ -86,43 +87,37 @@ class TrackerViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if updateGrid {
-            updateGrid = !updateGrid
-            updateTracker()
-        }
+        updateTracker()
         self.trackerGridView.alpha = 0
         UIView.animate(withDuration: 0.2) {
             self.trackerGridView.alpha = 1
         }
     }
 
-    
     func updateTracker() {
         self.habitNames = []
         self.habitDaysMap = [:]
-            getHabitDaysPerformed() { (habitsToDays) in
-                getHabits() { (habits) in
-                    for habit in habits {
-                        self.habitNames.append(habit.habitName)
-                    }
-                print("habitToDays")
-                print(habitsToDays)
-                for habit in habits {
-                    print("habitName")
-                    print(habit.habitName)
-                    print("value")
-                    print(habitsToDays[habit.habitName])
-                    print("unwrapped")
-                    print(habitsToDays[habit.habitName]!)
-                    self.habitDaysMap[habit.habitName] = habitsToDays[habit.habitName]!
-                    self.trackerGridView.reloadData()
+        getHabits() { (habits) in
+            for habit in habits {
+                self.habitNames.append(habit.habitName)
+                // habitsToDays is an empty dictionary when this line is reached
+                var daysArray: [String] = []
+                for (day, _) in habit.habitDays {
+                    daysArray.append(day)
                 }
-                print("within closure")
-                print(self.habitDaysMap)
+                self.habitDaysMap[habit.habitName] = daysArray
+                getDataFromPath(path: habit.habitIconPath, completion: { (data) in
+                    if let data = data {
+                        if let image = UIImage(data: data) {
+                            self.habitIconsMap[habit.habitName] = image
+                            self.trackerGridView.reloadData()
+                        }
+                    }
+                })
             }
         }
     }
-    
+//
 //    func updateDays() {
 //        self.habitDaysMap = [:]
 //        getHabitDaysPerformed() { (habitsToDays) in
@@ -130,7 +125,7 @@ class TrackerViewController: UIViewController {
 //            self.trackerGridView.reloadData()
 //        }
 //    }
-    
+//
 }
 
 
@@ -183,13 +178,14 @@ extension TrackerViewController: GridViewDataSource, GridViewDelegate {
             default:
                 if indexPath.column == 0 {
                     cell.dayLabel.text = habitNames[indexPath.row - 1]
+                } else if indexPath.row - 1 >= self.habitNames.count {
+                    cell.dayLabel.text = ""
                 } else {
-                    let dateColumn = getDayOfWeekFromDaysAgo(daysAgo: 7 - indexPath.column)
-                    print(self.habitNames)
-                    print(self.habitDaysMap)
+                    let dateColumn = Calendar.current.date(byAdding: .day, value: -(7 - indexPath.column), to: Date())!
+                    let dateColumnAsString = dateFormatter.string(from: dateColumn)
                     if self.habitDaysMap[self.habitNames[indexPath.row - 1]] != nil {
-                        if self.habitDaysMap[self.habitNames[indexPath.row - 1]]!.contains(dateColumn) {
-                            cell.backgroundColor = UIColor.green
+                        if self.habitDaysMap[self.habitNames[indexPath.row - 1]]!.contains(dateColumnAsString) {
+                            cell.cellImage.image = self.habitIconsMap[habitNames[indexPath.row - 1]]
                         }
                     }
                 }

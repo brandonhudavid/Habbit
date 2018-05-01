@@ -174,7 +174,9 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
                             self.habitsPerformed[habit.habitName] = habit.performedToday
                         }
                     }
-                    self.habitCollectionView.reloadData()
+                    DispatchQueue.main.async {
+                        self.habitCollectionView.reloadData()
+                    }
                 })
             }
         }

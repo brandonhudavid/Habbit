@@ -27,6 +27,13 @@
                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kV9-eg-yZu">
+                    <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="Hhl-nN-Ydm"/>
+                        <constraint firstAttribute="width" constant="45" id="I33-R8-HWa"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -34,10 +41,13 @@
                 <constraint firstItem="jBL-3h-nCa" firstAttribute="trailing" secondItem="hX4-u8-J17" secondAttribute="trailing" id="Fcq-cf-bV7"/>
                 <constraint firstItem="jBL-3h-nCa" firstAttribute="leading" secondItem="hX4-u8-J17" secondAttribute="leading" id="M1e-f8-qNd"/>
                 <constraint firstItem="jBL-3h-nCa" firstAttribute="top" secondItem="hX4-u8-J17" secondAttribute="top" id="VTh-4Q-OwQ"/>
+                <constraint firstItem="kV9-eg-yZu" firstAttribute="top" secondItem="hX4-u8-J17" secondAttribute="top" id="m5J-uS-3R7"/>
+                <constraint firstItem="kV9-eg-yZu" firstAttribute="leading" secondItem="hX4-u8-J17" secondAttribute="leading" id="txI-OX-EcN"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="hX4-u8-J17"/>
             <connections>
+                <outlet property="cellImage" destination="kV9-eg-yZu" id="hpZ-Zt-KsG"/>
                 <outlet property="dayLabel" destination="jBL-3h-nCa" id="HqC-gD-Cem"/>
             </connections>
             <point key="canvasLocation" x="-286" y="169"/>

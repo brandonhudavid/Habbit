@@ -49,10 +49,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("wthin prepare")
-        let vc = segue.destination as? HabitViewController
-        print("make false")
-        vc?.showAnnotation = false
+        if let vc = segue.destination as? HabitViewController {
+            print("make false")
+            vc.showAnnotation = false
+        }
         
     }
     
