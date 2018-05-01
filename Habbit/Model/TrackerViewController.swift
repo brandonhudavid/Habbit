@@ -33,10 +33,40 @@ extension Date {
 class TrackerViewController: UIViewController {
     
     var habitNames: [String] = []
+    var habitDaysMap: [String:[String]] = [:]
     let lightOrange = UIColor.init(red: 255/255, green: 240/255, blue: 229/255, alpha: 1)
     let darkOrange = UIColor.init(red: 249/255, green: 169/255, blue: 75/255, alpha: 1)
     let currentDate = Date()
     let dateFormatter = DateFormatter()
+    
+    func getDayOfWeekFromDaysAgo(daysAgo: Int) -> String {
+        let todayDate = NSDate()
+        let myCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier(rawValue: NSGregorianCalendar))
+        let myComponents = myCalendar?.components(.NSWeekdayCalendarUnit, from: todayDate as Date)
+        let weekDay = myComponents?.weekday
+        var dayOfWeek = weekDay! - daysAgo - 1
+        if dayOfWeek < 0 {
+            dayOfWeek = 7 + dayOfWeek
+        }
+        switch (dayOfWeek) {
+        case 0:
+            return "Sun"
+        case 1:
+            return "Mon"
+        case 2:
+            return "Tues"
+        case 3:
+            return "Wed"
+        case 4:
+            return "Thurs"
+        case 5:
+            return "Fri"
+        case 6:
+            return "Sat"
+        default:
+            return "error"
+        }
+    }
     
     
     @IBOutlet weak var trackerGridView: GridView!
@@ -69,13 +99,38 @@ class TrackerViewController: UIViewController {
     
     func updateTracker() {
         self.habitNames = []
-        getHabits() { (habits) in
-            for habit in habits {
-                self.habitNames.append(habit.habitName)
+        self.habitDaysMap = [:]
+            getHabitDaysPerformed() { (habitsToDays) in
+                getHabits() { (habits) in
+                    for habit in habits {
+                        self.habitNames.append(habit.habitName)
+                    }
+                print("habitToDays")
+                print(habitsToDays)
+                for habit in habits {
+                    print("habitName")
+                    print(habit.habitName)
+                    print("value")
+                    print(habitsToDays[habit.habitName])
+                    print("unwrapped")
+                    print(habitsToDays[habit.habitName]!)
+                    self.habitDaysMap[habit.habitName] = habitsToDays[habit.habitName]!
+                    self.trackerGridView.reloadData()
+                }
+                print("within closure")
+                print(self.habitDaysMap)
             }
-            DispatchQueue.main.async(execute: self.trackerGridView.reloadData)
         }
     }
+    
+//    func updateDays() {
+//        self.habitDaysMap = [:]
+//        getHabitDaysPerformed() { (habitsToDays) in
+//            self.habitDaysMap = habitsToDays
+//            self.trackerGridView.reloadData()
+//        }
+//    }
+    
 }
 
 
@@ -114,36 +169,29 @@ extension TrackerViewController: GridViewDataSource, GridViewDelegate {
             cell.layer.borderColor = UIColor.white.cgColor
             cell.backgroundColor = lightOrange
             switch indexPath.row {
+            // row 0: days of week
             case 0:
-                switch indexPath.column {
-                case 1:
-                    cell.dayLabel.text = "Sun"
-                case 2:
-                    cell.dayLabel.text = "Mon"
-                case 3:
-                    cell.dayLabel.text = "Tues"
-                case 4:
-                    cell.dayLabel.text = "Wed"
-                case 5:
-                    cell.dayLabel.text = "Thurs"
-                case 6:
-                    cell.dayLabel.text = "Fri"
-                    let yesterdayDate = currentDate.yesterday
-                    let dateString = dateFormatter.string(from: yesterdayDate)
-                    cell.dayLabel.text = cell.dayLabel.text! + " \n"
-                    cell.dayLabel.text = cell.dayLabel.text! + dateString
-                    
-                case 7:
-                    cell.dayLabel.text = "Sat"
-                default:
+                if indexPath.column == 0 {
                     cell.dayLabel.text = ""
+                } else {
+                    cell.dayLabel.text = getDayOfWeekFromDaysAgo(daysAgo: 7 - indexPath.column)
                 }
+            // last row: dummy white row
             case habitNames.count + 1:
                 cell.backgroundColor = UIColor.white
                 cell.dayLabel.text = ""
             default:
                 if indexPath.column == 0 {
                     cell.dayLabel.text = habitNames[indexPath.row - 1]
+                } else {
+                    let dateColumn = getDayOfWeekFromDaysAgo(daysAgo: 7 - indexPath.column)
+                    print(self.habitNames)
+                    print(self.habitDaysMap)
+                    if self.habitDaysMap[self.habitNames[indexPath.row - 1]] != nil {
+                        if self.habitDaysMap[self.habitNames[indexPath.row - 1]]!.contains(dateColumn) {
+                            cell.backgroundColor = UIColor.green
+                        }
+                    }
                 }
             }
             return cell
