@@ -42,6 +42,7 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
     var habitsPerformed: [String:Bool] = [:]
     var arrayChanged: Bool = false
     var blahediting: Bool = false
+    var showAnnotation: Bool = true
     
     let username: String = CurrentUser().username
     var welcomeString: String?
@@ -77,6 +78,7 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
         welcomeTextView.layer.shouldRasterize = true
         
         habitCollectionView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,6 +90,12 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
         UIView.animate(withDuration: 0.50) {
             self.habitCollectionView.alpha = 1
         }
+        print(showAnnotation)
+        if (showAnnotation) {
+            presentAnnotation()
+            showAnnotation = !showAnnotation
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -197,6 +205,13 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     @IBAction func unwindToHabitVC(segue:UIStoryboardSegue) { }
+    
+    // Tutorial
+    func presentAnnotation() {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Annotation") as! AnnotationViewController
+        viewController.alpha = 0.8
+        present(viewController, animated: true, completion: nil)
+    }
     
 }
 

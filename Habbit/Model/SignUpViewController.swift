@@ -70,9 +70,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func logInPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: "signUpToLogIn", sender: self)
+        performSegue(withIdentifier: "signUpToLogIn", sender: nil)
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
