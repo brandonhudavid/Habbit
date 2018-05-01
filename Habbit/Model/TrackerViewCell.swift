@@ -12,6 +12,7 @@ import G3GridView
 class TrackerViewCell: GridViewCell {
     
     @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var cellImage: UIImageView!
     
     static var nib: UINib {
         return UINib(nibName: "TrackerViewCell", bundle: Bundle(for: self))
