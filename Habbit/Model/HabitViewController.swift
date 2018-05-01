@@ -42,7 +42,6 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
     var habitsPerformed: [String:Bool] = [:]
     var arrayChanged: Bool = false
     var blahediting: Bool = false
-    var showAnnotation: Bool = true
     
     let username: String = CurrentUser().username
     var welcomeString: String?
@@ -78,6 +77,21 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
         welcomeTextView.layer.shouldRasterize = true
         
         habitCollectionView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+        
+//        let dbRef = Database.database().reference()
+//        let currentUser = CurrentUser()
+//        dbRef.child(currentUser.id).observeSingleEvent(of: .value, with: { snapshot -> Void in
+//            if snapshot.exists() {
+//                if let annotationDict = snapshot.value as? [String:Bool] {
+//                    if (!annotationDict["seenAnnotation"]!) {
+//                        self.presentAnnotation()
+//                        turnAnnotationOff()
+//                    }
+//                }
+//            }
+//        })
+        
+        presentAnnotation()
 
     }
     
@@ -90,12 +104,6 @@ class HabitViewController: UIViewController, UICollectionViewDataSource, UIColle
         UIView.animate(withDuration: 0.50) {
             self.habitCollectionView.alpha = 1
         }
-        print(showAnnotation)
-        if (showAnnotation) {
-            presentAnnotation()
-            showAnnotation = !showAnnotation
-        }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

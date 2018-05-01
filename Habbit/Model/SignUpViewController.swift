@@ -49,6 +49,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                     let alertController = UIAlertController(title: "Signed Up", message: "Registration successful!", preferredStyle: .alert)
                     let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: { action in
                         self.performSegue(withIdentifier: "signUpToMainPage", sender: nil) })
+                    //createUser()
                     alertController.addAction(defaultAction)
                     self.present(alertController, animated: true, completion: nil)
                     

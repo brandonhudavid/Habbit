@@ -48,27 +48,19 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         performSegue(withIdentifier: "logInToSignUp", sender: self)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("wthin prepare")
-        let vc = segue.destination as? HabitViewController
-        print("make false")
-        vc?.showAnnotation = false
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        Auth.auth().addStateDidChangeListener() { (auth, user) in
-            if let user = user {
-                self.performSegue(withIdentifier: "logInToMainPage", sender: nil)
-            }
-        }
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        Auth.auth().addStateDidChangeListener() { (auth, user) in
+//            if let user = user {
+//                self.performSegue(withIdentifier: "logInToMainPage", sender: nil)
+//            }
+//        }
+//    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == self.emailTextField {

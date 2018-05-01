@@ -13,6 +13,12 @@ import FirebaseStorage
 
 let currentUser = CurrentUser()
 
+func createUser() {
+    let dbRef = Database.database().reference()
+    var seenAnnotation: [String:Bool] = ["seenAnnotation":false]
+    dbRef.child(currentUser.id).setValue(seenAnnotation)
+}
+
 func addHabit(habitName: String, habitIcon: UIImage) {
     let dbRef = Database.database().reference()
     let habitIconData = UIImageJPEGRepresentation(habitIcon, 1.0)
@@ -35,6 +41,12 @@ func removeHabit(habitName: String) {
             print("error \(error)")
         }
     }
+}
+
+func turnAnnotationOff() {
+    let dbRef = Database.database().reference()
+    var seenAnnotation: [String:Bool] = ["seenAnnotation":true]
+    dbRef.child(currentUser.id).setValue(seenAnnotation)
 }
 
 func performHabit(habitName: String) {
