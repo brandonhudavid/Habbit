@@ -45,11 +45,11 @@ class HabitAdderController: UIViewController, UICollectionViewDataSource, UIColl
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alertController.addAction(defaultAction)
             present(alertController, animated: true, completion: nil)
-        } else if habitNames.contains(habitName.text) {
-            let alertController = UIAlertController(title: "Habit Already Exists", message: "You already have a habit with this name. Please choose a different name.", preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alertController.addAction(defaultAction)
-            present(alertController, animated: true, completion: nil)
+//        } else if habitNames.contains(habitName.text) {
+//            let alertController = UIAlertController(title: "Habit Already Exists", message: "You already have a habit with this name. Please choose a different name.", preferredStyle: .alert)
+//            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+//            alertController.addAction(defaultAction)
+//            present(alertController, animated: true, completion: nil)
         } else {
             addHabit(habitName: habitName.text!, habitIcon: selectedIcon!)
             let alertController = UIAlertController(title: "Started a new habit!", message: "You have successfully created a new habit.", preferredStyle: .alert)

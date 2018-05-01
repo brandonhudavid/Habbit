@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vam-ij-vud">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vam-ij-vud">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -48,6 +48,115 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hlv-ZQ-nGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="514.39999999999998" y="536.58170914542734"/>
+        </scene>
+        <!--Annotation View Controller-->
+        <scene sceneID="84L-Ii-ngt">
+            <objects>
+                <viewController storyboardIdentifier="Annotation" id="Vvp-Ml-Wlu" customClass="AnnotationViewController" customModule="Habbit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8zX-L0-eLM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCm-0u-Sui">
+                                <rect key="frame" x="75" y="63" width="225" height="85"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Welcome to Habbit! All of your habits will be displayed here.">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="20" name="Quicksand-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOC-1X-vop">
+                                <rect key="frame" x="182" y="70" width="177" height="47"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Click here to add a new habit.">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="20" name="Quicksand-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YiA-ln-0AD">
+                                <rect key="frame" x="16" y="70" width="176" height="47"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Click here to edit your habits.">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="20" name="Quicksand-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjf-ch-bgm">
+                                <rect key="frame" x="224" y="611" width="150" height="55"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Track your progress here.">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="20" name="Quicksand-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTH-IX-nAt">
+                                <rect key="frame" x="158" y="227" width="201" height="47"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="This is a habit. Click on it to complete it.">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="20" name="Quicksand-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="age-ET-Zw9" firstAttribute="trailing" secondItem="jCm-0u-Sui" secondAttribute="trailing" constant="75" id="1rI-Jw-zJH"/>
+                            <constraint firstItem="age-ET-Zw9" firstAttribute="trailing" secondItem="jOC-1X-vop" secondAttribute="trailing" constant="16" id="9vQ-sf-dFm"/>
+                            <constraint firstItem="FTH-IX-nAt" firstAttribute="top" secondItem="YiA-ln-0AD" secondAttribute="bottom" constant="110" id="DYe-PT-GGT"/>
+                            <constraint firstItem="jOC-1X-vop" firstAttribute="leading" secondItem="age-ET-Zw9" secondAttribute="leading" constant="182" id="F7s-BU-ZdC"/>
+                            <constraint firstItem="FTH-IX-nAt" firstAttribute="top" secondItem="jOC-1X-vop" secondAttribute="bottom" constant="110" id="Le1-UJ-nMg"/>
+                            <constraint firstItem="YiA-ln-0AD" firstAttribute="leading" secondItem="age-ET-Zw9" secondAttribute="leading" constant="16" id="Ns9-Mz-TQq"/>
+                            <constraint firstItem="qjf-ch-bgm" firstAttribute="leading" secondItem="age-ET-Zw9" secondAttribute="leading" constant="224" id="OGE-aJ-Q5Z"/>
+                            <constraint firstItem="FTH-IX-nAt" firstAttribute="top" secondItem="jCm-0u-Sui" secondAttribute="bottom" constant="79" id="SKW-5q-zWG"/>
+                            <constraint firstItem="age-ET-Zw9" firstAttribute="trailing" secondItem="qjf-ch-bgm" secondAttribute="trailing" constant="1" id="Wnu-Ms-KIe"/>
+                            <constraint firstItem="qjf-ch-bgm" firstAttribute="top" secondItem="FTH-IX-nAt" secondAttribute="bottom" constant="337" id="c6W-Vj-fW5"/>
+                            <constraint firstItem="age-ET-Zw9" firstAttribute="trailing" secondItem="YiA-ln-0AD" secondAttribute="trailing" constant="183" id="g88-nV-fFC"/>
+                            <constraint firstItem="jOC-1X-vop" firstAttribute="top" secondItem="age-ET-Zw9" secondAttribute="top" constant="50" id="iR7-Jz-5ks"/>
+                            <constraint firstItem="jCm-0u-Sui" firstAttribute="leading" secondItem="age-ET-Zw9" secondAttribute="leading" constant="75" id="rT7-71-lAq"/>
+                            <constraint firstItem="YiA-ln-0AD" firstAttribute="top" secondItem="age-ET-Zw9" secondAttribute="top" constant="50" id="ukT-Rv-JhW"/>
+                            <constraint firstItem="age-ET-Zw9" firstAttribute="trailing" secondItem="FTH-IX-nAt" secondAttribute="trailing" constant="16" id="uqV-rg-g1x"/>
+                            <constraint firstItem="FTH-IX-nAt" firstAttribute="leading" secondItem="age-ET-Zw9" secondAttribute="leading" constant="158" id="wAP-z1-0jE"/>
+                            <constraint firstItem="jCm-0u-Sui" firstAttribute="top" secondItem="age-ET-Zw9" secondAttribute="top" constant="43" id="xRu-Ef-4pd"/>
+                            <constraint firstItem="age-ET-Zw9" firstAttribute="bottom" secondItem="qjf-ch-bgm" secondAttribute="bottom" constant="1" id="xiA-RQ-eK8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="age-ET-Zw9"/>
+                    </view>
+                    <connections>
+                        <outletCollection property="annotationViews" destination="jCm-0u-Sui" collectionClass="NSMutableArray" id="FpR-Ea-d6N"/>
+                        <outletCollection property="annotationViews" destination="FTH-IX-nAt" collectionClass="NSMutableArray" id="H1F-jr-8Mq"/>
+                        <outletCollection property="annotationViews" destination="jOC-1X-vop" collectionClass="NSMutableArray" id="V4r-rP-xf4"/>
+                        <outletCollection property="annotationViews" destination="YiA-ln-0AD" collectionClass="NSMutableArray" id="2JV-xw-b86"/>
+                        <outletCollection property="annotationViews" destination="qjf-ch-bgm" collectionClass="NSMutableArray" id="JHZ-t4-yHM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="12N-fL-cBr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1336.8" y="-845.1274362818591"/>
         </scene>
         <!--Habit View Controller-->
         <scene sceneID="u9B-II-UlX">
