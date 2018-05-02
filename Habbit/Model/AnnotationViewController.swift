@@ -30,18 +30,15 @@ class AnnotationViewController: SpotlightViewController {
             // main habit screen
             spotlightView.appear(Spotlight.RoundedRect(center: CGPoint(x: screenSize.width / 2, y: screenSize.height / 2 + 58), size: CGSize(width: screenSize.width - 12, height: screenSize.height - 225), cornerRadius: 6))
         case 1:
-            // single habit
-            spotlightView.move(Spotlight.RoundedRect(center: CGPoint(x: 72, y: 271), size: CGSize(width: 132, height: 190), cornerRadius: 6), moveType: .disappear)
-        case 2:
             // add habit
             spotlightView.move(Spotlight.Oval(center: CGPoint(x: screenSize.width - 28, y: 42), diameter: 50))
-        case 3:
+        case 2:
             // edit habit
             spotlightView.move(Spotlight.RoundedRect(center: CGPoint(x: 36, y: 42), size: CGSize(width: 52, height: 40), cornerRadius: 6), moveType: .disappear)
-        case 4:
+        case 3:
             // tracker
             spotlightView.disappear()
-        case 5:
+        case 4:
             dismiss(animated: true, completion: nil)
         default:
             break
