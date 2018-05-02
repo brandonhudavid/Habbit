@@ -23,6 +23,7 @@ class TrackerViewCell: GridViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         self.dayLabel.text = ""
+        self.cellImage.image = nil
         self.layer.borderWidth = 2.0
         self.layer.borderColor = UIColor.white.cgColor
         self.backgroundColor = lightOrange
